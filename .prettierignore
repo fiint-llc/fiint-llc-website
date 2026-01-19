@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+
+# Build outputs
+.next/
+out/
+dist/
+
+# Cache
+.cache/
+.turbo/
+
+# Auto-generated
+*.min.js
+*.min.css

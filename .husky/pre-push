@@ -1,0 +1,21 @@
+#!/bin/sh
+
+echo "Running pre-push checks..."
+
+# Check localization files for missing keys
+echo "Checking localization files..."
+pnpm run i18n:check
+if [ $? -ne 0 ]; then
+  echo "❌ Localization check failed. Please fix missing translations before pushing."
+  exit 1
+fi
+
+# Run TypeScript type checking
+echo "Running TypeScript type check..."
+pnpm run ts
+if [ $? -ne 0 ]; then
+  echo "❌ TypeScript type check failed. Please fix type errors before pushing."
+  exit 1
+fi
+
+echo "✅ All pre-push checks passed!"

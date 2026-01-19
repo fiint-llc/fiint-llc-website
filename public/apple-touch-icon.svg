@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <!-- FI Int LLC Apple Touch Icon - Brand Indigo -->
+  <defs>
+    <linearGradient id="apple-icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4347e6"/>
+      <stop offset="100%" stop-color="#5a67f2"/>
+    </linearGradient>
+    <linearGradient id="apple-accent-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5a67f2"/>
+      <stop offset="100%" stop-color="#7b8ff8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="180" height="180" rx="40" fill="url(#apple-icon-gradient)"/>
+
+  <!-- F letter - bold geometric -->
+  <path d="M40 40h38v15H58v22h19v15H58v38H40V40z" fill="white"/>
+
+  <!-- I letter with accent dot -->
+  <rect x="98" y="57" width="15" height="73" rx="3" fill="white"/>
+  <circle cx="105.5" cy="42.5" r="9" fill="url(#apple-accent-gradient)"/>
+
+  <!-- Decorative data flow indicators -->
+  <rect x="125" y="85" width="22" height="11" rx="5.5" fill="white" opacity="0.7"/>
+  <rect x="125" y="107" width="15" height="11" rx="5.5" fill="white" opacity="0.5"/>
+</svg>

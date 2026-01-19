@@ -1,0 +1,305 @@
+{
+  "metadata": {
+    "title": "FI Int LLC - Finance Intelligence for Your Business",
+    "description": "We build software that helps businesses understand their finances and make smarter decisions. Custom financial tools, integrations, and analytics platforms.",
+    "keywords": "financial software development, fintech, custom software, financial analytics, business intelligence, DIIA City, Ukraine IT"
+  },
+  "nav": {
+    "services": "Services",
+    "howItWorks": "How it Works",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "Finance Intelligence for Your Business",
+    "title": "We build services that help you know your finances",
+    "description": "From custom analytics platforms to seamless integrations, we develop the financial intelligence tools your business needs to see clearly, act decisively, and keep moving forward.",
+    "cta": {
+      "primary": "Get in Touch",
+      "secondary": "See What We Build"
+    },
+    "discover": "Discover"
+  },
+  "problem": {
+    "label": "The Challenge",
+    "title": "Financial tools that don't fit your business",
+    "description": "Off-the-shelf financial software rarely matches how your business actually works. Data lives in silos, workflows are inefficient, and insights come too late.",
+    "points": {
+      "1": {
+        "title": "Scattered Data",
+        "description": "Financial information trapped across systems that don't talk to each other."
+      },
+      "2": {
+        "title": "Generic Solutions",
+        "description": "Software built for the average case, not your specific needs and workflows."
+      },
+      "3": {
+        "title": "Missing Insights",
+        "description": "Without the right tools, you're always reacting to problems instead of spotting them early."
+      }
+    }
+  },
+  "solution": {
+    "label": "Our Approach",
+    "title": "Software built around how you work",
+    "description": "We design and develop financial software tailored to your business. Our team of engineers, product managers, and designers works with you to build tools that fit — not the other way around."
+  },
+  "services": {
+    "label": "Services",
+    "title": "What we build",
+    "description": "We specialize in developing software for financial operations. Here's what we can create for your business.",
+    "items": {
+      "1": {
+        "title": "Financial Dashboards",
+        "description": "Custom analytics interfaces that surface the metrics that matter, when they matter."
+      },
+      "2": {
+        "title": "Data Integrations",
+        "description": "Connect your financial data sources into a unified system. Banks, ERPs, spreadsheets — we make them work together."
+      },
+      "3": {
+        "title": "Process Automation",
+        "description": "Software that handles repetitive financial tasks automatically, reducing errors and saving time."
+      },
+      "4": {
+        "title": "Reporting Platforms",
+        "description": "Automated reporting systems that generate the documents you need, in the format you need them."
+      },
+      "5": {
+        "title": "Financial Modeling Tools",
+        "description": "Interactive applications for forecasting, scenario planning, and decision support."
+      },
+      "6": {
+        "title": "Custom Applications",
+        "description": "Bespoke financial software when your requirements go beyond what existing tools can do."
+      }
+    }
+  },
+  "howItWorks": {
+    "label": "Process",
+    "title": "How we work",
+    "description": "A clear process for building software that actually solves your problems.",
+    "steps": {
+      "1": {
+        "title": "Understand",
+        "description": "We start by understanding your business, your workflows, and what you're trying to achieve."
+      },
+      "2": {
+        "title": "Design & Prototype",
+        "description": "Our team designs solutions and builds prototypes, iterating with your feedback until we get it right."
+      },
+      "3": {
+        "title": "Build & Deliver",
+        "description": "We develop, test, and deploy software that your team can rely on and maintain."
+      }
+    }
+  },
+  "whyUs": {
+    "label": "Why FI Int",
+    "title": "Built different",
+    "description": "A team that cares about building the right thing, not just building something.",
+    "points": {
+      "1": {
+        "title": "Finance-Focused",
+        "description": "We specialize in financial software. It's not a side project — it's what we do."
+      },
+      "2": {
+        "title": "Full-Stack Team",
+        "description": "Engineers, product managers, and designers working together from day one."
+      },
+      "3": {
+        "title": "Your Code, Your Control",
+        "description": "We build solutions you own. No vendor lock-in, no ongoing dependencies on us."
+      },
+      "4": {
+        "title": "Honest Advice",
+        "description": "We'll tell you if something won't work. Clear expectations from the start."
+      }
+    }
+  },
+  "pricing": {
+    "label": "Pricing",
+    "title": "Project-based pricing",
+    "description": "Every project is different. We provide custom quotes based on your specific requirements, timeline, and scope — no generic packages or hidden fees.",
+    "factors": {
+      "1": {
+        "title": "Scope & Complexity",
+        "description": "The features you need, integrations required, and technical complexity all factor into the estimate."
+      },
+      "2": {
+        "title": "Timeline",
+        "description": "Standard timelines vs. accelerated delivery. We'll work with your schedule and constraints."
+      },
+      "3": {
+        "title": "Ongoing Support",
+        "description": "Whether you need maintenance, updates, or prefer a complete handoff to your team."
+      }
+    },
+    "cta": {
+      "title": "Let's discuss your project",
+      "description": "Tell us about what you're building and we'll provide a detailed estimate. No commitment required — just an honest conversation about what it would take.",
+      "button": "Get a Quote"
+    }
+  },
+  "technologies": {
+    "label": "Our Stack",
+    "title": "Technologies we work with",
+    "description": "We use modern, battle-tested technologies to build reliable financial software that scales with your business.",
+    "categories": {
+      "frontend": {
+        "title": "Frontend",
+        "items": ["React", "TypeScript", "Next.js"]
+      },
+      "backend": {
+        "title": "Backend",
+        "items": ["Node.js", "Ruby on Rails", "PostgreSQL"]
+      },
+      "cloud": {
+        "title": "Cloud",
+        "items": ["AWS", "Docker", "Kubernetes"]
+      }
+    },
+    "andMore": "and more"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Questions & Answers",
+    "items": {
+      "1": {
+        "question": "What kinds of businesses do you work with?",
+        "answer": "We work with businesses that need better financial tooling — from startups building their first internal tools to established companies modernizing legacy systems. If your financial operations involve data that needs to be organized, analyzed, or acted upon, we can probably help."
+      },
+      "2": {
+        "question": "How long does a typical project take?",
+        "answer": "It depends on scope. Simple integrations or dashboards might take a few weeks. Larger platforms can take several months. We'll give you a realistic timeline during our initial conversations, and we keep you updated throughout."
+      },
+      "3": {
+        "question": "Do you provide ongoing support?",
+        "answer": "Yes, if you want it. We can provide maintenance and support, or we can hand off everything with documentation so your team can manage it independently. We're flexible about what works for you."
+      },
+      "4": {
+        "question": "What technologies do you use?",
+        "answer": "We pick the right tools for each project. Our team has experience across modern web technologies, databases, cloud platforms, and various financial APIs. We'll work with your existing infrastructure when it makes sense."
+      },
+      "5": {
+        "question": "How do you handle sensitive financial data?",
+        "answer": "Security is built into our process from the start. We follow industry best practices for handling financial data and can work within your existing security policies and compliance requirements."
+      },
+      "6": {
+        "question": "Do you use AI in your development process?",
+        "answer": "Yes, we leverage modern AI tools to enhance our productivity and code quality. We use AI assistants for code review, documentation, and accelerating routine tasks — while always maintaining human oversight for critical decisions. This allows us to deliver higher quality solutions faster, while keeping costs reasonable for our clients."
+      }
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's talk",
+    "description": "Have a project in mind? Questions about what we do? Send us a message and we'll get back to you within one business day.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Your company (optional)",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your project or question...",
+      "submit": "Send Message",
+      "submitting": "Sending..."
+    },
+    "success": {
+      "title": "Message sent",
+      "description": "Thank you for reaching out. We'll get back to you within one business day.",
+      "sendAnother": "Send another message"
+    },
+    "error": {
+      "title": "Something went wrong",
+      "description": "Please try again later or email us directly.",
+      "validation": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "messageRequired": "Message is required",
+        "messageTooShort": "Message must be at least 10 characters"
+      }
+    }
+  },
+  "footer": {
+    "company": "FI Int LLC",
+    "tagline": "Finance Intelligence for Your Business. We build services that help you know your finances and build intelligence to keep it moving forward.",
+    "copyright": "© {year} FI Int LLC. All rights reserved.",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "companyInfo": {
+      "title": "Company Information",
+      "registrationLabel": "EDRPOU",
+      "registrationNumber": "46008901",
+      "addressLabel": "Legal Address",
+      "address": "Chornovola ave., Lviv, Ukraine",
+      "emailLabel": "Email",
+      "email": "hello@fiint.com"
+    },
+    "legal": {
+      "title": "Legal",
+      "ukraine": "Made in Ukraine"
+    },
+    "language": "Language"
+  },
+  "privacy": {
+    "title": "Privacy",
+    "lastUpdated": "Last updated: January 2026",
+    "content": {
+      "intro": "We keep it simple. Here's how we handle your data.",
+      "sections": {
+        "1": {
+          "title": "What we collect",
+          "content": "Only what you give us through the contact form: your name, email, and message. That's it. No tracking cookies, no analytics, no third-party scripts watching you."
+        },
+        "2": {
+          "title": "What we do with it",
+          "content": "We use your contact info to reply to you. We don't sell it, share it, or use it for marketing. When we're done talking, we don't keep your data around longer than needed."
+        },
+        "3": {
+          "title": "Your rights",
+          "content": "Want to know what data we have about you? Want us to delete it? Just email hello@fiint.com and we'll take care of it."
+        },
+        "4": {
+          "title": "Questions",
+          "content": "If you have any questions about how we handle your data, reach out to hello@fiint.com."
+        }
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms",
+    "lastUpdated": "Last updated: January 2026",
+    "content": {
+      "intro": "The basics of using our website.",
+      "sections": {
+        "1": {
+          "title": "The website",
+          "content": "This is a marketing website for FI Int LLC. We describe what we do and how to contact us. Any actual work we do together will have its own contract."
+        },
+        "2": {
+          "title": "Content",
+          "content": "Everything on this website (text, design, logo) belongs to FI Int LLC. Feel free to share links, but don't copy our content."
+        },
+        "3": {
+          "title": "No warranties",
+          "content": "This website is provided as-is. We try to keep everything accurate and working, but we're not liable if something is wrong or broken."
+        },
+        "4": {
+          "title": "Legal stuff",
+          "content": "FI Int LLC is registered in Ukraine (EDRPOU: 46008901). Ukrainian law applies to any disputes, though we'd prefer to just talk things out."
+        }
+      }
+    }
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "backToHome": "Back to Home"
+  }
+}

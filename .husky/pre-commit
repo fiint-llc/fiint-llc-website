@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Run lint-staged for eslint autofixes and prettier formatting
+pnpm exec lint-staged
