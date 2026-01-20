@@ -44,6 +44,7 @@ export function ContactSection() {
     data.timestamp = pageLoadTime;
 
     // Client-side timing check
+    // eslint-disable-next-line react-hooks/purity
     if (Date.now() - pageLoadTime < MIN_SUBMIT_TIME) {
       // Silently reject (likely bot)
       setStatus('success');
@@ -81,28 +82,16 @@ export function ContactSection() {
   return (
     <Section sectionId="contact" warm>
       <div className="max-w-2xl mx-auto">
-        <SectionHeader
-          label={t('label')}
-          title={t('title')}
-          description={t('description')}
-        />
+        <SectionHeader label={t('label')} title={t('title')} description={t('description')} />
 
         {status === 'success' ? (
           <div className="text-center py-12 animate-fade-up">
             <div className="w-16 h-16 rounded-full bg-primary-500/10 flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="h-8 w-8 text-primary-500" />
             </div>
-            <h3 className="text-heading text-foreground mb-2">
-              {t('success.title')}
-            </h3>
-            <p className="text-body text-muted-foreground">
-              {t('success.description')}
-            </p>
-            <Button
-              variant="outline"
-              className="mt-6"
-              onClick={() => setStatus('idle')}
-            >
+            <h3 className="text-heading text-foreground mb-2">{t('success.title')}</h3>
+            <p className="text-body text-muted-foreground">{t('success.description')}</p>
+            <Button variant="outline" className="mt-6" onClick={() => setStatus('idle')}>
               {t('success.sendAnother')}
             </Button>
           </div>
@@ -180,12 +169,7 @@ export function ContactSection() {
 
             {/* Honeypot field - hidden from users */}
             <div className="hidden" aria-hidden="true">
-              <Input
-                type="text"
-                tabIndex={-1}
-                autoComplete="off"
-                {...register('website')}
-              />
+              <Input type="text" tabIndex={-1} autoComplete="off" {...register('website')} />
             </div>
 
             {/* Submit */}

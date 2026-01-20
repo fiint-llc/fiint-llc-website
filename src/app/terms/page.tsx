@@ -24,16 +24,12 @@ export default function TermsPage() {
         </Link>
 
         {/* Header */}
-        <h1 className="text-display-sm lg:text-display text-foreground mb-4">
-          {t('title')}
-        </h1>
+        <h1 className="text-display-sm lg:text-display text-foreground mb-4">{t('title')}</h1>
         <p className="text-muted-foreground mb-8">{t('lastUpdated')}</p>
 
         {/* Content */}
         <div className="prose prose-neutral dark:prose-invert max-w-none">
-          <p className="text-body-lg text-muted-foreground mb-8">
-            {t('content.intro')}
-          </p>
+          <p className="text-body-lg text-muted-foreground mb-8">{t('content.intro')}</p>
 
           {sections.map((num) => (
             <div key={num} className="mb-8">

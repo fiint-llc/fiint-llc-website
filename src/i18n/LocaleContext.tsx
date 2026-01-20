@@ -21,7 +21,7 @@ interface LocaleContextValue {
 
 const LocaleContext = React.createContext<LocaleContextValue>({
   locale: defaultLocale,
-  setLocale: () => { },
+  setLocale: () => {},
 });
 
 const LOCALE_STORAGE_KEY = 'fiint-locale';
@@ -65,10 +65,7 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.lang = newLocale;
   }, []);
 
-  const value = React.useMemo(
-    () => ({ locale, setLocale }),
-    [locale, setLocale]
-  );
+  const value = React.useMemo(() => ({ locale, setLocale }), [locale, setLocale]);
 
   // Use default locale for SSR, then switch on client
   const currentLocale = mounted ? locale : defaultLocale;

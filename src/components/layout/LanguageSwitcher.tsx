@@ -18,6 +18,22 @@ const localeShortLabels: Record<Locale, string> = {
 
 export function LanguageSwitcher({ variant = 'icon' }: LanguageSwitcherProps) {
   const { locale, setLocale } = useLocale();
+  const [isOpen, setIsOpen] = React.useState(false);
+  const dropdownRef = React.useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  React.useEffect(() => {
+    if (variant === 'full') return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [variant]);
 
   if (variant === 'full') {
     return (
@@ -39,25 +55,6 @@ export function LanguageSwitcher({ variant = 'icon' }: LanguageSwitcherProps) {
       </div>
     );
   }
-
-  // Icon variant with dropdown
-  const [isOpen, setIsOpen] = React.useState(false);
-  const dropdownRef = React.useRef<HTMLDivElement>(null);
-
-  // Close dropdown when clicking outside
-  React.useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
 
   return (
     <div className="relative" ref={dropdownRef}>

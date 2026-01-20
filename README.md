@@ -75,6 +75,7 @@ NEXT_PUBLIC_SITE_URL=https://fiint.com
 The site supports English (default) and Ukrainian.
 
 **Editing content:**
+
 ```bash
 # 1. Edit English content (source of truth)
 # src/messages/en.json
@@ -87,6 +88,7 @@ pnpm i18n:sync
 ```
 
 **Routes:**
+
 - `/en` — English
 - `/ua` — Ukrainian
 
@@ -102,6 +104,7 @@ pnpm i18n:sync
 ### Environment Variables on Vercel
 
 Add the following in Vercel Dashboard → Settings → Environment Variables:
+
 - `SMTP_HOST`
 - `SMTP_PORT`
 - `SMTP_SECURE`
@@ -120,6 +123,7 @@ Add the following in Vercel Dashboard → Settings → Environment Variables:
 ## Contact Form
 
 The contact form includes:
+
 - Server-side validation (zod)
 - Honeypot field (anti-spam)
 - Submission timing check (anti-bot)
@@ -134,11 +138,13 @@ The form will log submissions to console if SMTP is not configured.
 See `BRAND.md` for complete brand guidelines.
 
 **Key colors (RAL7033-inspired forest green palette):**
+
 - Primary (Forest Green): `#5a7d5a`
 - Secondary (Sage/Olive): `#7a8b63`
 - Accent (Light Sage): `#8fa882`
 
 **Typography:**
+
 - Font: Inter (via next/font)
 - Sizes: display, heading, body, caption
 
@@ -147,6 +153,7 @@ See `BRAND.md` for complete brand guidelines.
 See `CLAUDE.md` for detailed AI collaboration guidelines.
 
 **Key principles:**
+
 1. English is the source of truth for content
 2. Never hardcode text outside message files
 3. Follow the design system strictly

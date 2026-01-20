@@ -60,11 +60,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased">
@@ -75,19 +71,21 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <LocaleProvider>
-              {/* Skip to content link for accessibility */}
-              <a
-                href="#main-content"
-                className="sr-only focus:not-sr-only focus:absolute focus:z-100 focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-primary-500 focus:text-white focus:rounded-md"
-              >
-                Skip to main content
-              </a>
-              <div className="flex min-h-screen flex-col">
-                <Header />
-                <main id="main-content" className="flex-1">{children}</main>
-                <Footer />
-              </div>
-              <Toaster />
+            {/* Skip to content link for accessibility */}
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:z-100 focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-primary-500 focus:text-white focus:rounded-md"
+            >
+              Skip to main content
+            </a>
+            <div className="flex min-h-screen flex-col">
+              <Header />
+              <main id="main-content" className="flex-1">
+                {children}
+              </main>
+              <Footer />
+            </div>
+            <Toaster />
           </LocaleProvider>
         </ThemeProvider>
       </body>

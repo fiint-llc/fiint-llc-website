@@ -26,15 +26,17 @@ export function HeroSection() {
 
         {/* Main headline with gradient text */}
         <h1 className="text-display-sm md:text-display lg:text-display-lg text-foreground mb-8 animate-fade-up animation-delay-100">
-          {t('title').split(' ').map((word, i) => (
-            <span key={i}>
-              {i === t('title').split(' ').length - 1 ? (
-                <span className="gradient-text">{word}</span>
-              ) : (
-                `${word} `
-              )}
-            </span>
-          ))}
+          {t('title')
+            .split(' ')
+            .map((word, i) => (
+              <span key={i}>
+                {i === t('title').split(' ').length - 1 ? (
+                  <span className="gradient-text">{word}</span>
+                ) : (
+                  `${word} `
+                )}
+              </span>
+            ))}
         </h1>
 
         {/* Description */}

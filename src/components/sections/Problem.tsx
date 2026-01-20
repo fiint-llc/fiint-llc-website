@@ -36,26 +36,19 @@ export function ProblemSection() {
 
   return (
     <Section sectionId="problem" className="bg-mesh-clean relative">
-      <SectionHeader
-        label={t('label')}
-        title={t('title')}
-        description={t('description')}
-      />
+      <SectionHeader label={t('label')} title={t('title')} description={t('description')} />
 
       <div className="grid md:grid-cols-3 gap-6 stagger-children">
         {points.map(({ key, icon: Icon, color }) => {
           const classes = colorClasses[color];
           return (
-            <div
-              key={key}
-              className="card-elevated p-8 group"
-            >
-              <div className={`w-14 h-14 rounded-2xl ${classes.bg} ${classes.hover} flex items-center justify-center mb-6 transition-colors`}>
+            <div key={key} className="card-elevated p-8 group">
+              <div
+                className={`w-14 h-14 rounded-2xl ${classes.bg} ${classes.hover} flex items-center justify-center mb-6 transition-colors`}
+              >
                 <Icon className={`h-7 w-7 ${classes.icon}`} />
               </div>
-              <h3 className="text-heading-sm text-foreground mb-3">
-                {t(`points.${key}.title`)}
-              </h3>
+              <h3 className="text-heading-sm text-foreground mb-3">{t(`points.${key}.title`)}</h3>
               <p className="text-body text-muted-foreground leading-relaxed">
                 {t(`points.${key}.description`)}
               </p>

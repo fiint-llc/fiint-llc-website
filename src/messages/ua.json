@@ -149,27 +149,15 @@
     "categories": {
       "frontend": {
         "title": "Фронтенд",
-        "items": [
-          "React",
-          "TypeScript",
-          "Next.js"
-        ]
+        "items": ["React", "TypeScript", "Next.js"]
       },
       "backend": {
         "title": "Бекенд",
-        "items": [
-          "Node.js",
-          "Ruby on Rails",
-          "PostgreSQL"
-        ]
+        "items": ["Node.js", "Ruby on Rails", "PostgreSQL"]
       },
       "cloud": {
         "title": "Хмара",
-        "items": [
-          "Google Cloud",
-          "Docker",
-          "Kubernetes"
-        ]
+        "items": ["Google Cloud", "Docker", "Kubernetes"]
       }
     },
     "andMore": "та інші"

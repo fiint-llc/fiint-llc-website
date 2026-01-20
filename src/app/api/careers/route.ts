@@ -197,9 +197,6 @@ CV Attached: ${cvBuffer ? 'Yes' : 'No'}
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Career application error:', error);
-    return NextResponse.json(
-      { error: 'Failed to submit application' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to submit application' }, { status: 500 });
   }
 }

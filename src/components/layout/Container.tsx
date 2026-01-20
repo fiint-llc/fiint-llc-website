@@ -10,12 +10,7 @@ interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
  * Container component for consistent max-width and padding
  * across all sections. Part of the design system.
  */
-export function Container({
-  children,
-  className,
-  size = 'default',
-  ...props
-}: ContainerProps) {
+export function Container({ children, className, size = 'default', ...props }: ContainerProps) {
   return (
     <div
       className={cn(

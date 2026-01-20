@@ -23,11 +23,7 @@ export function TechnologiesSection() {
 
   return (
     <Section sectionId="technologies" warm>
-      <SectionHeader
-        label={t('label')}
-        title={t('title')}
-        description={t('description')}
-      />
+      <SectionHeader label={t('label')} title={t('title')} description={t('description')} />
 
       <div className="grid md:grid-cols-3 gap-8">
         {categories.map((category, index) => {
@@ -42,7 +38,9 @@ export function TechnologiesSection() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Icon */}
-              <div className={`w-12 h-12 rounded-xl ${colorClass} flex items-center justify-center mb-4`}>
+              <div
+                className={`w-12 h-12 rounded-xl ${colorClass} flex items-center justify-center mb-4`}
+              >
                 <Icon className="h-6 w-6" />
               </div>
 
@@ -54,17 +52,12 @@ export function TechnologiesSection() {
               {/* Tech list */}
               <div className="flex flex-wrap gap-x-4 gap-y-0.5">
                 {items.map((tech: string) => (
-                  <span
-                    key={tech}
-                    className="text-sm text-muted-foreground font-medium"
-                  >
+                  <span key={tech} className="text-sm text-muted-foreground font-medium">
                     {tech}
                   </span>
                 ))}
               </div>
-              <span className="text-sm text-muted-foreground/60 italic mt-1">
-                {t('andMore')}
-              </span>
+              <span className="text-sm text-muted-foreground/60 italic mt-1">{t('andMore')}</span>
             </div>
           );
         })}

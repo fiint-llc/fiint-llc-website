@@ -3,12 +3,7 @@
 import * as React from 'react';
 import { useTranslations } from 'next-intl';
 import { Section, SectionHeader } from '../layout/Section';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '../ui/Accordion';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/Accordion';
 
 export function FAQSection() {
   const t = useTranslations('faq');
@@ -29,9 +24,7 @@ export function FAQSection() {
           {faqItems.map((item) => (
             <AccordionItem key={item.value} value={item.value}>
               <AccordionTrigger>{item.question}</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                {item.answer}
-              </AccordionContent>
+              <AccordionContent className="text-muted-foreground">{item.answer}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>

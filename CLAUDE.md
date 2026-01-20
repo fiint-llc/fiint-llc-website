@@ -19,22 +19,26 @@ This is the marketing website for FI Int LLC, a software development company spe
 The design system is defined in `tailwind.config.ts` and `src/app/globals.css`. **Do not deviate from it.**
 
 **Colors (RAL7033-inspired forest green palette):**
+
 - Primary accent: Forest Green (`primary-500` = #5a7d5a)
 - Secondary accent: Sage/Olive (`secondary-500` = #7a8b63)
 - Tertiary accent: Light Sage (`accent-500` = #8fa882)
 - Never use more than 2 accent colors in one view
 
 **Spacing:**
+
 - Use `section-spacing` class for consistent vertical rhythm
 - Use `Container` component for horizontal containment
 - Avoid arbitrary margins/paddings
 
 **Typography:**
+
 - Limited font sizes (defined as `text-display-*`, `text-heading-*`, `text-body-*`)
 - Strong hierarchy, clear readability
 - Line length optimized with `max-w-prose`
 
 **Motion:**
+
 - Subtle animations only (`fade-in`, `fade-up`, `scale-in`)
 - No continuous or distracting animations
 - Use sparingly: section reveal, card hover, button interactions
@@ -65,6 +69,7 @@ src/
 ### 5. Common Tasks
 
 #### Updating Marketing Copy
+
 ```bash
 1. Edit src/messages/en.json
 2. Run: pnpm i18n:sync
@@ -73,6 +78,7 @@ src/
 ```
 
 #### Adding a New Section
+
 ```typescript
 1. Create component in src/components/sections/
 2. Use Section and SectionHeader from layout
@@ -82,6 +88,7 @@ src/
 ```
 
 #### Modifying Design System
+
 ```
 1. Edit tailwind.config.ts for tokens
 2. Edit globals.css for CSS variables
@@ -92,6 +99,7 @@ src/
 ### 6. Environment Variables
 
 Required for production:
+
 ```
 SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS
 CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL
@@ -116,14 +124,14 @@ See `.env.example` for full list.
 
 ## Quick Reference
 
-| Task | File(s) |
-|------|---------|
-| Update copy | `src/messages/en.json` |
-| Change colors | `tailwind.config.ts` |
-| Add section | `src/components/sections/` |
-| Modify layout | `src/components/layout/` |
-| API endpoints | `src/app/api/` |
+| Task          | File(s)                    |
+| ------------- | -------------------------- |
+| Update copy   | `src/messages/en.json`     |
+| Change colors | `tailwind.config.ts`       |
+| Add section   | `src/components/sections/` |
+| Modify layout | `src/components/layout/`   |
+| API endpoints | `src/app/api/`             |
 
 ---
 
-*This file is part of the project's AI collaboration documentation.*
+_This file is part of the project's AI collaboration documentation._

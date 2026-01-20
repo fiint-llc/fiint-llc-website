@@ -44,7 +44,9 @@ export function Footer() {
                   className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-sm hover:bg-white/[0.06] hover:border-white/20 transition-all group"
                 >
                   <span className="text-2xl">🇺🇦</span>
-                  <span className="text-neutral-300 text-sm font-medium group-hover:text-white transition-colors">{t('legal.ukraine')}</span>
+                  <span className="text-neutral-300 text-sm font-medium group-hover:text-white transition-colors">
+                    {t('legal.ukraine')}
+                  </span>
                   <ArrowUpRight className="size-4 text-neutral-500 group-hover:text-white transition-colors" />
                 </a>
               </div>
@@ -61,8 +63,12 @@ export function Footer() {
                     <Building2 className="h-4 w-4 text-primary-400" />
                   </div>
                   <div className="text-sm pt-0.5">
-                    <span className="text-neutral-500 block text-xs uppercase tracking-wide mb-0.5">{t('companyInfo.registrationLabel')}</span>
-                    <span className="text-white font-medium">{t('companyInfo.registrationNumber')}</span>
+                    <span className="text-neutral-500 block text-xs uppercase tracking-wide mb-0.5">
+                      {t('companyInfo.registrationLabel')}
+                    </span>
+                    <span className="text-white font-medium">
+                      {t('companyInfo.registrationNumber')}
+                    </span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3 group">
@@ -70,7 +76,9 @@ export function Footer() {
                     <MapPin className="h-4 w-4 text-secondary-400" />
                   </div>
                   <div className="text-sm pt-0.5">
-                    <span className="text-neutral-500 block text-xs uppercase tracking-wide mb-0.5">{t('companyInfo.addressLabel')}</span>
+                    <span className="text-neutral-500 block text-xs uppercase tracking-wide mb-0.5">
+                      {t('companyInfo.addressLabel')}
+                    </span>
                     <a
                       href="https://maps.google.com/?q=Chornovola+ave+77,+Lviv,+79047,+Ukraine"
                       target="_blank"
@@ -135,7 +143,9 @@ export function Footer() {
 
             {/* Language Column */}
             <div className="lg:col-span-2">
-              <h3 className="font-display font-semibold text-white mb-6 text-sm uppercase tracking-wider">{t('language')}</h3>
+              <h3 className="font-display font-semibold text-white mb-6 text-sm uppercase tracking-wider">
+                {t('language')}
+              </h3>
               <LanguageSwitcher variant="full" />
             </div>
           </div>

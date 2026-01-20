@@ -41,10 +41,7 @@ export const openPositions: JobPosition[] = [
       'seniorBackendEngineer.requirements.4',
       'seniorBackendEngineer.requirements.5',
     ],
-    niceToHaveKeys: [
-      'seniorBackendEngineer.niceToHave.1',
-      'seniorBackendEngineer.niceToHave.2',
-    ],
+    niceToHaveKeys: ['seniorBackendEngineer.niceToHave.1', 'seniorBackendEngineer.niceToHave.2'],
   },
 ];
 

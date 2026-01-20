@@ -10,36 +10,24 @@ interface LogoProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
-/**
- * FI Int Logo System (2026 Premium Edition)
- *
- * A bold, distinctive logo that stands out:
- * - Geometric "FI" monogram with modern fintech aesthetic
- * - Sophisticated forest green gradient
- * - Clean, memorable wordmark
- *
- * Variants:
- * - default: Vibrant gradient
- * - mono: Single color (currentColor)
- * - icon: Mark only, no wordmark
- */
-export function Logo({
-  className,
-  showText = true,
-  href,
-  variant = 'default',
-  size = 'md'
-}: LogoProps) {
-  const sizes = {
-    sm: { icon: 'h-8 w-8', text: 'text-lg', gap: 'gap-2' },
-    md: { icon: 'h-10 w-10', text: 'text-xl', gap: 'gap-2.5' },
-    lg: { icon: 'h-12 w-12', text: 'text-2xl', gap: 'gap-3' },
-  };
+interface LogoMarkSvgProps {
+  iconSize: string;
+  variant: 'default' | 'mono' | 'icon';
+}
 
-  const { icon: iconSize, text: textSize, gap } = sizes[size];
+interface LogoContentProps {
+  className?: string;
+  showText: boolean;
+  variant: 'default' | 'mono' | 'icon';
+  iconSize: string;
+  textSize: string;
+  gap: string;
+}
+
+function LogoMarkSvg({ iconSize, variant }: LogoMarkSvgProps) {
   const gradientId = React.useId();
 
-  const LogoMark = () => (
+  return (
     <svg
       viewBox="0 0 48 48"
       fill="none"
@@ -76,9 +64,30 @@ export function Logo({
       />
 
       {/* F letter - with rounded edges (centered: y=14 to y=34) */}
-      <rect x="12" y="14" width="10" height="4" rx="1" fill={variant === 'mono' ? 'currentColor' : 'white'} />
-      <rect x="12" y="14" width="4" height="20" rx="1" fill={variant === 'mono' ? 'currentColor' : 'white'} />
-      <rect x="12" y="23" width="9" height="4" rx="1" fill={variant === 'mono' ? 'currentColor' : 'white'} />
+      <rect
+        x="12"
+        y="14"
+        width="10"
+        height="4"
+        rx="1"
+        fill={variant === 'mono' ? 'currentColor' : 'white'}
+      />
+      <rect
+        x="12"
+        y="14"
+        width="4"
+        height="20"
+        rx="1"
+        fill={variant === 'mono' ? 'currentColor' : 'white'}
+      />
+      <rect
+        x="12"
+        y="23"
+        width="9"
+        height="4"
+        rx="1"
+        fill={variant === 'mono' ? 'currentColor' : 'white'}
+      />
 
       {/* I letter - with accent dot */}
       <rect
@@ -117,31 +126,66 @@ export function Logo({
       />
     </svg>
   );
+}
 
-  const LogoContent = () => (
+function LogoContent({ className, showText, variant, iconSize, textSize, gap }: LogoContentProps) {
+  return (
     <div className={cn('flex items-center', gap, className)}>
-      <LogoMark />
+      <LogoMarkSvg iconSize={iconSize} variant={variant} />
 
       {showText && variant !== 'icon' && (
         <div className="flex items-baseline">
-          <span className={cn(
-            'font-display font-bold tracking-tight',
-            textSize,
-            variant === 'mono' ? 'text-current' : 'text-foreground'
-          )}>
+          <span
+            className={cn(
+              'font-display font-bold tracking-tight',
+              textSize,
+              variant === 'mono' ? 'text-current' : 'text-foreground'
+            )}
+          >
             FI
           </span>
-          <span className={cn(
-            'font-display font-medium tracking-tight ml-1',
-            textSize,
-            variant === 'mono' ? 'text-current opacity-70' : 'text-foreground/60'
-          )}>
+          <span
+            className={cn(
+              'font-display font-medium tracking-tight ml-1',
+              textSize,
+              variant === 'mono' ? 'text-current opacity-70' : 'text-foreground/60'
+            )}
+          >
             Int
           </span>
         </div>
       )}
     </div>
   );
+}
+
+/**
+ * FI Int Logo System (2026 Premium Edition)
+ *
+ * A bold, distinctive logo that stands out:
+ * - Geometric "FI" monogram with modern fintech aesthetic
+ * - Sophisticated forest green gradient
+ * - Clean, memorable wordmark
+ *
+ * Variants:
+ * - default: Vibrant gradient
+ * - mono: Single color (currentColor)
+ * - icon: Mark only, no wordmark
+ */
+export function Logo({
+  className,
+  showText = true,
+  href,
+  variant = 'default',
+  size = 'md',
+}: LogoProps) {
+  const sizes = {
+    sm: { icon: 'h-8 w-8', text: 'text-lg', gap: 'gap-2' },
+    md: { icon: 'h-10 w-10', text: 'text-xl', gap: 'gap-2.5' },
+    lg: { icon: 'h-12 w-12', text: 'text-2xl', gap: 'gap-3' },
+  };
+
+  const { icon: iconSize, text: textSize, gap } = sizes[size];
 
   if (href) {
     return (
@@ -149,12 +193,28 @@ export function Logo({
         href={href}
         className="inline-flex focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded-lg transition-all duration-200 hover:opacity-90"
       >
-        <LogoContent />
+        <LogoContent
+          className={className}
+          showText={showText}
+          variant={variant}
+          iconSize={iconSize}
+          textSize={textSize}
+          gap={gap}
+        />
       </Link>
     );
   }
 
-  return <LogoContent />;
+  return (
+    <LogoContent
+      className={className}
+      showText={showText}
+      variant={variant}
+      iconSize={iconSize}
+      textSize={textSize}
+      gap={gap}
+    />
+  );
 }
 
 /**
@@ -163,7 +223,7 @@ export function Logo({
 export function LogoMark({
   className,
   variant = 'default',
-  size = 'md'
+  size = 'md',
 }: {
   className?: string;
   variant?: 'default' | 'mono';
@@ -211,9 +271,30 @@ export function LogoMark({
       />
 
       {/* F letter - with rounded edges (centered: y=14 to y=34) */}
-      <rect x="12" y="14" width="10" height="4" rx="1" fill={variant === 'mono' ? 'currentColor' : 'white'} />
-      <rect x="12" y="14" width="4" height="20" rx="1" fill={variant === 'mono' ? 'currentColor' : 'white'} />
-      <rect x="12" y="23" width="9" height="4" rx="1" fill={variant === 'mono' ? 'currentColor' : 'white'} />
+      <rect
+        x="12"
+        y="14"
+        width="10"
+        height="4"
+        rx="1"
+        fill={variant === 'mono' ? 'currentColor' : 'white'}
+      />
+      <rect
+        x="12"
+        y="14"
+        width="4"
+        height="20"
+        rx="1"
+        fill={variant === 'mono' ? 'currentColor' : 'white'}
+      />
+      <rect
+        x="12"
+        y="23"
+        width="9"
+        height="4"
+        rx="1"
+        fill={variant === 'mono' ? 'currentColor' : 'white'}
+      />
 
       <rect
         x="26"

@@ -17,11 +17,7 @@ export function HowItWorksSection() {
 
   return (
     <Section sectionId="how-it-works" className="bg-orbs relative">
-      <SectionHeader
-        label={t('label')}
-        title={t('title')}
-        description={t('description')}
-      />
+      <SectionHeader label={t('label')} title={t('title')} description={t('description')} />
 
       <div className="grid md:grid-cols-3 gap-8">
         {steps.map(({ key, number, icon: Icon }, index) => (
@@ -45,9 +41,7 @@ export function HowItWorksSection() {
               </span>
             </div>
 
-            <h3 className="text-heading-sm text-foreground mb-2">
-              {t(`steps.${key}.title`)}
-            </h3>
+            <h3 className="text-heading-sm text-foreground mb-2">{t(`steps.${key}.title`)}</h3>
             <p className="text-body text-muted-foreground max-w-xs mx-auto">
               {t(`steps.${key}.description`)}
             </p>

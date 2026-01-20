@@ -9,11 +9,7 @@ export function SolutionSection() {
   return (
     <Section gradient>
       <div className="max-w-3xl mx-auto text-center">
-        <SectionHeader
-          label={t('label')}
-          title={t('title')}
-          description={t('description')}
-        />
+        <SectionHeader label={t('label')} title={t('title')} description={t('description')} />
       </div>
     </Section>
   );

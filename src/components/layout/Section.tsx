@@ -54,30 +54,16 @@ interface SectionHeaderProps {
  * Section header with optional label, title, and description
  * Provides consistent styling for section introductions
  */
-export function SectionHeader({
-  label,
-  title,
-  description,
-  align = 'center',
-}: SectionHeaderProps) {
+export function SectionHeader({ label, title, description, align = 'center' }: SectionHeaderProps) {
   return (
-    <div
-      className={cn(
-        'mb-12 lg:mb-16',
-        align === 'center' && 'text-center mx-auto max-w-2xl'
-      )}
-    >
+    <div className={cn('mb-12 lg:mb-16', align === 'center' && 'text-center mx-auto max-w-2xl')}>
       {label && (
         <span className="text-primary-500 text-sm font-semibold uppercase tracking-wide mb-2 block">
           {label}
         </span>
       )}
-      <h2 className="text-display-sm lg:text-display text-foreground mb-4">
-        {title}
-      </h2>
-      {description && (
-        <p className="text-body-lg text-muted-foreground">{description}</p>
-      )}
+      <h2 className="text-display-sm lg:text-display text-foreground mb-4">{title}</h2>
+      {description && <p className="text-body-lg text-muted-foreground">{description}</p>}
     </div>
   );
 }
