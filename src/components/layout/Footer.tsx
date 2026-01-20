@@ -18,8 +18,8 @@ export function Footer() {
       <div className="absolute inset-0 bg-gradient-to-br from-primary-950/70 via-neutral-950 to-secondary-950/40 pointer-events-none" />
 
       {/* Decorative blobs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 blob blob-primary opacity-10" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 blob blob-secondary opacity-8" />
+      <div className="absolute -top-32 -right-32 w-96 h-96 blob blob-primary opacity-10" />
+      <div className="absolute -bottom-24 -left-24 w-72 h-72 blob blob-secondary opacity-[0.08]" />
 
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 grid-pattern opacity-[0.03]" />
@@ -36,16 +36,18 @@ export function Footer() {
               </p>
 
               {/* Made in Ukraine badge */}
-              <a
-                href="https://u24.gov.ua/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-sm hover:bg-white/[0.06] hover:border-white/20 transition-all group"
-              >
-                <span className="text-2xl">🇺🇦</span>
-                <span className="text-neutral-300 text-sm font-medium group-hover:text-white transition-colors">{t('legal.ukraine')}</span>
-                <ArrowUpRight className="h-3 w-3 text-neutral-500 group-hover:text-white transition-colors" />
-              </a>
+              <div className="mt-8">
+                <a
+                  href="https://u24.gov.ua/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-sm hover:bg-white/[0.06] hover:border-white/20 transition-all group"
+                >
+                  <span className="text-2xl">🇺🇦</span>
+                  <span className="text-neutral-300 text-sm font-medium group-hover:text-white transition-colors">{t('legal.ukraine')}</span>
+                  <ArrowUpRight className="size-4 text-neutral-500 group-hover:text-white transition-colors" />
+                </a>
+              </div>
             </div>
 
             {/* Company Info Column */}
@@ -70,13 +72,13 @@ export function Footer() {
                   <div className="text-sm pt-0.5">
                     <span className="text-neutral-500 block text-xs uppercase tracking-wide mb-0.5">{t('companyInfo.addressLabel')}</span>
                     <a
-                      href="https://maps.google.com/?q=Chornovola+ave,+Lviv,+Ukraine"
+                      href="https://maps.google.com/?q=Chornovola+ave+77,+Lviv,+79047,+Ukraine"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-white font-medium hover:text-secondary-400 transition-colors flex items-center gap-1"
                     >
                       {t('companyInfo.address')}
-                      <ArrowUpRight className="h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                      <ArrowUpRight className="size-3 shrink-0 opacity-50 group-hover:opacity-100 transition-opacity" />
                     </a>
                   </div>
                 </li>
@@ -89,7 +91,7 @@ export function Footer() {
                     className="text-white font-medium hover:text-primary-400 transition-colors flex items-center gap-1 text-sm pt-2"
                   >
                     {t('companyInfo.email')}
-                    <ArrowUpRight className="h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="size-3 shrink-0 opacity-50 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </li>
               </ul>
@@ -103,11 +105,20 @@ export function Footer() {
               <ul className="space-y-3">
                 <li>
                   <Link
+                    href="/careers"
+                    className="text-neutral-400 hover:text-white transition-colors text-sm flex items-center gap-1 group"
+                  >
+                    {t('links.careers')}
+                    <ArrowUpRight className="size-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/privacy"
                     className="text-neutral-400 hover:text-white transition-colors text-sm flex items-center gap-1 group"
                   >
                     {t('links.privacy')}
-                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="size-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 </li>
                 <li>
@@ -116,7 +127,7 @@ export function Footer() {
                     className="text-neutral-400 hover:text-white transition-colors text-sm flex items-center gap-1 group"
                   >
                     {t('links.terms')}
-                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="size-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 </li>
               </ul>
@@ -132,7 +143,16 @@ export function Footer() {
           {/* Bottom Bar */}
           <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-neutral-400">
-              {t('copyright', { year: currentYear })}
+              {t('copyright', { year: currentYear })} •{' '}
+              <a
+                href="https://city.diia.gov.ua/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors inline-flex items-center gap-1 group"
+              >
+                {t('legal.diaCity')}
+                <ArrowUpRight className="size-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
             </p>
             <p className="text-sm text-neutral-400">
               Software Development •{' '}

@@ -13,7 +13,7 @@ interface LanguageSwitcherProps {
 // Short labels for the compact display
 const localeShortLabels: Record<Locale, string> = {
   en: 'EN',
-  uk: 'UA',
+  ua: 'UA',
 };
 
 export function LanguageSwitcher({ variant = 'icon' }: LanguageSwitcherProps) {
@@ -76,7 +76,7 @@ export function LanguageSwitcher({ variant = 'icon' }: LanguageSwitcherProps) {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-40 rounded-md border border-border bg-card shadow-lg animate-scale-in z-50">
+        <div className="absolute right-0 mt-3 w-40 rounded-lg border border-border bg-card shadow-lg animate-scale-in z-50 overflow-hidden">
           <div className="py-1">
             {locales.map((loc) => (
               <button

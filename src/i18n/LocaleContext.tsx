@@ -7,11 +7,11 @@ import { defaultLocale, locales } from './routing';
 
 // Import messages statically
 import enMessages from '@/messages/en.json';
-import ukMessages from '@/messages/uk.json';
+import ukMessages from '@/messages/ua.json';
 
 const messages: Record<Locale, typeof enMessages> = {
   en: enMessages,
-  uk: ukMessages,
+  ua: ukMessages,
 };
 
 interface LocaleContextValue {
@@ -21,7 +21,7 @@ interface LocaleContextValue {
 
 const LocaleContext = React.createContext<LocaleContextValue>({
   locale: defaultLocale,
-  setLocale: () => {},
+  setLocale: () => { },
 });
 
 const LOCALE_STORAGE_KEY = 'fiint-locale';

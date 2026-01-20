@@ -3,9 +3,9 @@
 
   <!-- Abstract Symbol -->
   <g>
-    <rect x="4" y="22" width="5" height="12" rx="1" fill="#22c55e"/>
-    <rect x="12" y="16" width="5" height="18" rx="1" fill="#22c55e"/>
-    <rect x="20" y="8" width="5" height="26" rx="1" fill="#22c55e"/>
+    <rect x="4" y="22" width="5" height="12" rx="1" fill="#5a7d5a"/>
+    <rect x="12" y="16" width="5" height="18" rx="1" fill="#5a7d5a"/>
+    <rect x="20" y="8" width="5" height="26" rx="1" fill="#5a7d5a"/>
   </g>
 
   <!-- Wordmark -->

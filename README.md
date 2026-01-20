@@ -88,7 +88,7 @@ pnpm i18n:sync
 
 **Routes:**
 - `/en` — English
-- `/uk` — Ukrainian
+- `/ua` — Ukrainian
 
 ## Deployment
 
@@ -133,9 +133,10 @@ The form will log submissions to console if SMTP is not configured.
 
 See `BRAND.md` for complete brand guidelines.
 
-**Key colors:**
-- Primary (Gen-Z Green): `#22c55e`
-- Secondary (Purple): `#a855f7`
+**Key colors (RAL7033-inspired forest green palette):**
+- Primary (Forest Green): `#5a7d5a`
+- Secondary (Sage/Olive): `#7a8b63`
+- Accent (Light Sage): `#8fa882`
 
 **Typography:**
 - Font: Inter (via next/font)

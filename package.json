@@ -14,6 +14,7 @@
     "format:check": "prettier --check .",
     "i18n:check": "node scripts/check-translations.js",
     "i18n:sync": "node scripts/sync-translations.js",
+    "i18n:generate": "claude -p --append-system-prompt \"$(cat CLAUDE.md)\" \"/i18n_generate\"",
     "prepare": "husky"
   },
   "dependencies": {

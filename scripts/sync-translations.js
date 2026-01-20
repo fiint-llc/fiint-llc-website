@@ -3,7 +3,7 @@
 /**
  * Translation Sync Script
  *
- * Syncs uk.json with en.json structure.
+ * Syncs ua.json with en.json structure.
  * - Adds missing keys with [NEEDS TRANSLATION] prefix
  * - Preserves existing translations
  * - Removes keys that don't exist in en.json
@@ -20,7 +20,7 @@ const path = require('path');
 
 const messagesDir = path.join(__dirname, '../src/messages');
 const enPath = path.join(messagesDir, 'en.json');
-const ukPath = path.join(messagesDir, 'uk.json');
+const ukPath = path.join(messagesDir, 'ua.json');
 
 const NEEDS_TRANSLATION_PREFIX = '[NEEDS TRANSLATION] ';
 
@@ -62,13 +62,13 @@ function main() {
   const en = JSON.parse(fs.readFileSync(enPath, 'utf-8'));
 
   // Load target (Ukrainian) if exists
-  let uk = {};
+  let ua = {};
   if (fs.existsSync(ukPath)) {
-    uk = JSON.parse(fs.readFileSync(ukPath, 'utf-8'));
+    ua = JSON.parse(fs.readFileSync(ukPath, 'utf-8'));
   }
 
   // Merge (preserving existing translations)
-  const synced = deepMerge(en, uk);
+  const synced = deepMerge(en, ua);
 
   // Count items needing translation
   const needsTranslation = countNeedsTranslation(synced);
@@ -80,7 +80,7 @@ function main() {
 
   if (needsTranslation > 0) {
     console.log(`⚠️  ${needsTranslation} strings need translation.`);
-    console.log(`   Look for "${NEEDS_TRANSLATION_PREFIX}" prefix in uk.json\n`);
+    console.log(`   Look for "${NEEDS_TRANSLATION_PREFIX}" prefix in ua.json\n`);
   } else {
     console.log('   All strings are translated.\n');
   }

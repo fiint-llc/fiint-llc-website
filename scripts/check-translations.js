@@ -3,7 +3,7 @@
 /**
  * Translation Check Script
  *
- * Compares en.json (source of truth) with uk.json
+ * Compares en.json (source of truth) with ua.json
  * and reports missing or extra keys.
  *
  * Usage: node scripts/check-translations.js
@@ -14,7 +14,7 @@ const path = require('path');
 
 const messagesDir = path.join(__dirname, '../src/messages');
 const enPath = path.join(messagesDir, 'en.json');
-const ukPath = path.join(messagesDir, 'uk.json');
+const ukPath = path.join(messagesDir, 'ua.json');
 
 function flattenObject(obj, prefix = '') {
   const result = {};
@@ -35,11 +35,11 @@ function flattenObject(obj, prefix = '') {
 function main() {
   // Load message files
   const en = JSON.parse(fs.readFileSync(enPath, 'utf-8'));
-  const uk = JSON.parse(fs.readFileSync(ukPath, 'utf-8'));
+  const ua = JSON.parse(fs.readFileSync(ukPath, 'utf-8'));
 
   // Flatten both
   const enKeys = flattenObject(en);
-  const ukKeys = flattenObject(uk);
+  const ukKeys = flattenObject(ua);
 
   const enKeySet = new Set(Object.keys(enKeys));
   const ukKeySet = new Set(Object.keys(ukKeys));
@@ -61,12 +61,12 @@ function main() {
   }
 
   if (missingInUk.length > 0) {
-    console.log(`\n❌ Missing in uk.json (${missingInUk.length} keys):`);
+    console.log(`\n❌ Missing in ua.json (${missingInUk.length} keys):`);
     missingInUk.forEach((k) => console.log(`   - ${k}`));
   }
 
   if (extraInUk.length > 0) {
-    console.log(`\n⚠️  Extra in uk.json (${extraInUk.length} keys):`);
+    console.log(`\n⚠️  Extra in ua.json (${extraInUk.length} keys):`);
     extraInUk.forEach((k) => console.log(`   - ${k}`));
   }
 

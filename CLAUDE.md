@@ -12,15 +12,16 @@ This is the marketing website for FI Int LLC, a software development company spe
 
 - **English is the source of truth** — all text originates in `src/messages/en.json`
 - **Never hardcode text** — all user-facing strings must be in message files
-- **Translation workflow** — update `en.json` first, then sync to `uk.json` using the provided scripts
+- **Translation workflow** — update `en.json` first, then sync to `ua.json` using the provided scripts
 
 ### 2. Design System
 
 The design system is defined in `tailwind.config.ts` and `src/app/globals.css`. **Do not deviate from it.**
 
-**Colors:**
-- Primary accent: Gen-Z green (`primary-500` = #22c55e)
-- Secondary accent: Purple (`secondary-500` = #a855f7)
+**Colors (RAL7033-inspired forest green palette):**
+- Primary accent: Forest Green (`primary-500` = #5a7d5a)
+- Secondary accent: Sage/Olive (`secondary-500` = #7a8b63)
+- Tertiary accent: Light Sage (`accent-500` = #8fa882)
 - Never use more than 2 accent colors in one view
 
 **Spacing:**
@@ -67,7 +68,7 @@ src/
 ```bash
 1. Edit src/messages/en.json
 2. Run: pnpm i18n:sync
-3. Review changes in uk.json
+3. Review changes in ua.json
 4. Test both locales visually
 ```
 

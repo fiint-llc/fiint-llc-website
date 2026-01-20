@@ -157,7 +157,7 @@
       },
       "cloud": {
         "title": "Cloud",
-        "items": ["AWS", "Docker", "Kubernetes"]
+        "items": ["Google Cloud", "Docker", "Kubernetes"]
       }
     },
     "andMore": "and more"
@@ -228,8 +228,9 @@
   "footer": {
     "company": "FI Int LLC",
     "tagline": "Finance Intelligence for Your Business. We build services that help you know your finances and build intelligence to keep it moving forward.",
-    "copyright": "© {year} FI Int LLC. All rights reserved.",
+    "copyright": "© {year} FI Int LLC • All rights reserved",
     "links": {
+      "careers": "Careers",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service"
     },
@@ -238,13 +239,14 @@
       "registrationLabel": "EDRPOU",
       "registrationNumber": "46008901",
       "addressLabel": "Legal Address",
-      "address": "Chornovola ave., Lviv, Ukraine",
+      "address": "77 Chornovola Ave., office 46, Lviv, 79047, Ukraine",
       "emailLabel": "Email",
       "email": "hello@fiint.com"
     },
     "legal": {
-      "title": "Legal",
-      "ukraine": "Made in Ukraine"
+      "title": "Quick Links",
+      "ukraine": "Made in Ukraine",
+      "diaCity": "Diia.City Resident"
     },
     "language": "Language"
   },
@@ -295,6 +297,72 @@
           "title": "Legal stuff",
           "content": "FI Int LLC is registered in Ukraine (EDRPOU: 46008901). Ukrainian law applies to any disputes, though we'd prefer to just talk things out."
         }
+      }
+    }
+  },
+  "careers": {
+    "label": "Careers",
+    "title": "Join Our Team",
+    "description": "We're building a team of talented engineers who are passionate about creating excellent financial software. If you're excited about solving complex problems and working with modern technologies, we'd love to hear from you.",
+    "openPositions": "Open Positions",
+    "noPositions": "No open positions at the moment. Check back soon or send us your CV for future opportunities.",
+    "requirements": "Requirements",
+    "niceToHave": "Nice to Have",
+    "applyNow": "Apply Now",
+    "generalApplication": {
+      "title": "Don't see the right fit?",
+      "description": "We're always looking for talented people. Send your CV to hello@fiint.com and tell us what you're passionate about."
+    },
+    "positions": {
+      "seniorBackendEngineer": {
+        "title": "Senior Backend Engineer",
+        "location": "Remote (Ukraine)",
+        "type": "Full-time",
+        "description": "We're looking for an experienced backend engineer to help us build robust, scalable financial systems. You'll work on integrations, APIs, and data processing pipelines that power our clients' operations.",
+        "requirements": {
+          "1": "5+ years of backend development experience",
+          "2": "Strong proficiency in Node.js or Ruby on Rails",
+          "3": "Experience with PostgreSQL and database optimization",
+          "4": "Familiarity with cloud infrastructure (Google Cloud preferred)",
+          "5": "Understanding of financial systems and data security"
+        },
+        "niceToHave": {
+          "1": "Experience with financial APIs and integrations",
+          "2": "Knowledge of TypeScript and modern JavaScript"
+        }
+      }
+    },
+    "form": {
+      "title": "Apply for Position",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "John",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Doe",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "cv": "CV / Resume",
+      "cvUpload": "Click to upload your CV",
+      "cvHelp": "PDF or Word document, max 5MB",
+      "message": "Cover Letter (optional)",
+      "messagePlaceholder": "Tell us about yourself and why you're interested in this role...",
+      "submit": "Submit Application",
+      "submitting": "Submitting...",
+      "success": {
+        "title": "Application Submitted",
+        "description": "Thank you for your interest! We'll review your application and get back to you within a few business days.",
+        "close": "Close"
+      },
+      "error": {
+        "title": "Something went wrong",
+        "description": "Please try again later or email us directly at hello@fiint.com."
+      },
+      "validation": {
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "cvTooLarge": "File is too large. Maximum size is 5MB.",
+        "cvInvalidType": "Invalid file type. Please upload a PDF or Word document."
       }
     }
   },

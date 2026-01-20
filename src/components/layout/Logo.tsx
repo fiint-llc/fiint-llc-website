@@ -15,7 +15,7 @@ interface LogoProps {
  *
  * A bold, distinctive logo that stands out:
  * - Geometric "FI" monogram with modern fintech aesthetic
- * - Vibrant gradient from indigo to cyan
+ * - Sophisticated forest green gradient
  * - Clean, memorable wordmark
  *
  * Variants:
@@ -50,15 +50,15 @@ export function Logo({
       <defs>
         {variant === 'default' && (
           <>
-            {/* Primary gradient - Brand indigo */}
+            {/* Primary gradient - Brand forest green */}
             <linearGradient id={`logo-main-${gradientId}`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#4347e6" />
-              <stop offset="100%" stopColor="#5a67f2" />
+              <stop offset="0%" stopColor="#476447" />
+              <stop offset="100%" stopColor="#5a7d5a" />
             </linearGradient>
             {/* Accent gradient - for dot */}
             <linearGradient id={`logo-accent-${gradientId}`} x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#5a67f2" />
-              <stop offset="100%" stopColor="#7b8ff8" />
+              <stop offset="0%" stopColor="#5a7d5a" />
+              <stop offset="100%" stopColor="#7a9a7a" />
             </linearGradient>
           </>
         )}
@@ -75,16 +75,15 @@ export function Logo({
         opacity={variant === 'mono' ? 0.1 : 1}
       />
 
-      {/* F letter - bold geometric */}
-      <path
-        d="M12 12h10v4h-6v6h5v4h-5v10h-4V12z"
-        fill={variant === 'mono' ? 'currentColor' : 'white'}
-      />
+      {/* F letter - with rounded edges (centered: y=14 to y=34) */}
+      <rect x="12" y="14" width="10" height="4" rx="1" fill={variant === 'mono' ? 'currentColor' : 'white'} />
+      <rect x="12" y="14" width="4" height="20" rx="1" fill={variant === 'mono' ? 'currentColor' : 'white'} />
+      <rect x="12" y="23" width="9" height="4" rx="1" fill={variant === 'mono' ? 'currentColor' : 'white'} />
 
       {/* I letter - with accent dot */}
       <rect
         x="26"
-        y="16"
+        y="14"
         width="4"
         height="20"
         rx="1"
@@ -92,8 +91,8 @@ export function Logo({
       />
       <circle
         cx="28"
-        cy="12"
-        r="2.5"
+        cy="10"
+        r="2"
         fill={variant === 'mono' ? 'currentColor' : `url(#logo-accent-${gradientId})`}
       />
 
@@ -109,7 +108,7 @@ export function Logo({
       />
       <rect
         x="34"
-        y="30"
+        y="29"
         width="4"
         height="3"
         rx="1.5"
@@ -133,9 +132,9 @@ export function Logo({
             FI
           </span>
           <span className={cn(
-            'font-display font-medium tracking-tight',
+            'font-display font-medium tracking-tight ml-1',
             textSize,
-            variant === 'mono' ? 'text-current opacity-70' : 'text-muted-foreground'
+            variant === 'mono' ? 'text-current opacity-70' : 'text-foreground/60'
           )}>
             Int
           </span>
@@ -190,12 +189,12 @@ export function LogoMark({
         {variant === 'default' && (
           <>
             <linearGradient id={`mark-main-${gradientId}`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#4347e6" />
-              <stop offset="100%" stopColor="#5a67f2" />
+              <stop offset="0%" stopColor="#476447" />
+              <stop offset="100%" stopColor="#5a7d5a" />
             </linearGradient>
             <linearGradient id={`mark-accent-${gradientId}`} x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#5a67f2" />
-              <stop offset="100%" stopColor="#7b8ff8" />
+              <stop offset="0%" stopColor="#5a7d5a" />
+              <stop offset="100%" stopColor="#7a9a7a" />
             </linearGradient>
           </>
         )}
@@ -211,14 +210,14 @@ export function LogoMark({
         opacity={variant === 'mono' ? 0.1 : 1}
       />
 
-      <path
-        d="M12 12h10v4h-6v6h5v4h-5v10h-4V12z"
-        fill={variant === 'mono' ? 'currentColor' : 'white'}
-      />
+      {/* F letter - with rounded edges (centered: y=14 to y=34) */}
+      <rect x="12" y="14" width="10" height="4" rx="1" fill={variant === 'mono' ? 'currentColor' : 'white'} />
+      <rect x="12" y="14" width="4" height="20" rx="1" fill={variant === 'mono' ? 'currentColor' : 'white'} />
+      <rect x="12" y="23" width="9" height="4" rx="1" fill={variant === 'mono' ? 'currentColor' : 'white'} />
 
       <rect
         x="26"
-        y="16"
+        y="14"
         width="4"
         height="20"
         rx="1"
@@ -226,8 +225,8 @@ export function LogoMark({
       />
       <circle
         cx="28"
-        cy="12"
-        r="2.5"
+        cy="10"
+        r="2"
         fill={variant === 'mono' ? 'currentColor' : `url(#mark-accent-${gradientId})`}
       />
 
@@ -242,7 +241,7 @@ export function LogoMark({
       />
       <rect
         x="34"
-        y="30"
+        y="29"
         width="4"
         height="3"
         rx="1.5"

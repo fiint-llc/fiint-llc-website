@@ -52,17 +52,17 @@ export function TechnologiesSection() {
               </h3>
 
               {/* Tech list */}
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-x-4 gap-y-0.5">
                 {items.map((tech: string) => (
                   <span
                     key={tech}
-                    className="py-1.5 text-sm rounded-full bg-muted text-muted-foreground font-medium"
+                    className="text-sm text-muted-foreground font-medium"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
-              <span className="py-1.5 text-sm text-muted-foreground/60 italic block">
+              <span className="text-sm text-muted-foreground/60 italic mt-1">
                 {t('andMore')}
               </span>
             </div>
