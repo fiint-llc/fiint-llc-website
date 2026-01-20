@@ -3,7 +3,18 @@
 import * as React from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { ArrowLeft, MapPin, Clock, Briefcase, Upload, X, CheckCircle, AlertCircle, Send, FileText } from 'lucide-react';
+import {
+  ArrowLeft,
+  MapPin,
+  Clock,
+  Briefcase,
+  Upload,
+  X,
+  CheckCircle,
+  AlertCircle,
+  Send,
+  FileText,
+} from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Section } from '@/components/layout/Section';
@@ -25,13 +36,7 @@ import {
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
-function JobCard({
-  job,
-  onApply,
-}: {
-  job: JobPosition;
-  onApply: (job: JobPosition) => void;
-}) {
+function JobCard({ job, onApply }: { job: JobPosition; onApply: (job: JobPosition) => void }) {
   const t = useTranslations('careers.positions');
   const tCommon = useTranslations('careers');
 
@@ -52,9 +57,7 @@ function JobCard({
             </div>
           </div>
 
-          <p className="text-body text-muted-foreground mb-4">
-            {t(job.descriptionKey)}
-          </p>
+          <p className="text-body text-muted-foreground mb-4">{t(job.descriptionKey)}</p>
 
           <div className="mb-4">
             <h4 className="text-sm font-semibold text-foreground mb-2">
@@ -64,9 +67,9 @@ function JobCard({
               {job.requirementsKeys.map((key, index) => (
                 <li
                   key={index}
-                  className="text-sm text-muted-foreground flex items-start gap-2"
+                  className="text-sm text-muted-foreground flex items-start gap-2 leading-5"
                 >
-                  <span className="text-primary-500 mt-1">•</span>
+                  <span className="text-primary-500">•</span>
                   {t(key)}
                 </li>
               ))}
@@ -82,9 +85,9 @@ function JobCard({
                 {job.niceToHaveKeys.map((key, index) => (
                   <li
                     key={index}
-                    className="text-sm text-muted-foreground flex items-start gap-2"
+                    className="text-sm text-muted-foreground flex items-start gap-2 leading-5"
                   >
-                    <span className="text-secondary-500 mt-1">•</span>
+                    <span className="text-secondary-500">•</span>
                     {t(key)}
                   </li>
                 ))}
@@ -104,13 +107,7 @@ function JobCard({
   );
 }
 
-function ApplicationModal({
-  job,
-  onClose,
-}: {
-  job: JobPosition;
-  onClose: () => void;
-}) {
+function ApplicationModal({ job, onClose }: { job: JobPosition; onClose: () => void }) {
   const t = useTranslations('careers');
   const tPositions = useTranslations('careers.positions');
   const tValidation = useTranslations('careers.form.validation');
@@ -186,6 +183,7 @@ function ApplicationModal({
     data.timestamp = pageLoadTime;
 
     // Client-side timing check
+    // eslint-disable-next-line react-hooks/purity
     if (Date.now() - pageLoadTime < MIN_SUBMIT_TIME) {
       setStatus('success');
       reset();
@@ -242,16 +240,18 @@ function ApplicationModal({
       />
 
       {/* Modal */}
-      <div className="relative rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto border border-border text-foreground" style={{ backgroundColor: 'hsl(var(--card))' }}>
+      <div
+        className="relative rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto border border-border text-foreground"
+        style={{ backgroundColor: 'hsl(var(--card))' }}
+      >
         {/* Header */}
-        <div className="sticky top-0 border-b border-border px-6 py-4 flex items-center justify-between z-10" style={{ backgroundColor: 'hsl(var(--card))' }}>
+        <div
+          className="sticky top-0 border-b border-border px-6 py-4 flex items-center justify-between z-10"
+          style={{ backgroundColor: 'hsl(var(--card))' }}
+        >
           <div>
-            <h2 className="text-heading text-foreground">
-              {t('form.title')}
-            </h2>
-            <p className="text-sm text-muted-foreground">
-              {tPositions(job.titleKey)}
-            </p>
+            <h2 className="text-heading text-foreground">{t('form.title')}</h2>
+            <p className="text-sm text-muted-foreground">{tPositions(job.titleKey)}</p>
           </div>
           <button
             onClick={onClose}
@@ -269,9 +269,7 @@ function ApplicationModal({
               <div className="w-16 h-16 rounded-full bg-primary-500/10 flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="h-8 w-8 text-primary-500" />
               </div>
-              <h3 className="text-heading text-foreground mb-2">
-                {t('form.success.title')}
-              </h3>
+              <h3 className="text-heading text-foreground mb-2">{t('form.success.title')}</h3>
               <p className="text-body text-muted-foreground mb-6">
                 {t('form.success.description')}
               </p>
@@ -386,9 +384,7 @@ function ApplicationModal({
                     </button>
                   )}
 
-                  {cvError && (
-                    <p className="text-xs text-red-500 mt-1">{cvError}</p>
-                  )}
+                  {cvError && <p className="text-xs text-red-500 mt-1">{cvError}</p>}
                   <p id="cv-help" className="text-xs text-muted-foreground mt-1">
                     {t('form.cvHelp')}
                   </p>
@@ -411,12 +407,7 @@ function ApplicationModal({
               <input type="hidden" {...register('jobId')} />
               <input type="hidden" {...register('jobTitle')} />
               <div className="hidden" aria-hidden="true">
-                <Input
-                  type="text"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  {...register('website')}
-                />
+                <Input type="text" tabIndex={-1} autoComplete="off" {...register('website')} />
               </div>
 
               {/* Submit */}
@@ -469,20 +460,14 @@ export default function CareersPage() {
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary-500/10 text-primary-600 dark:text-primary-400 text-sm font-medium mb-4">
               {t('label')}
             </span>
-            <h1 className="text-display-sm lg:text-display text-foreground mb-4">
-              {t('title')}
-            </h1>
-            <p className="text-body-lg text-muted-foreground max-w-2xl">
-              {t('description')}
-            </p>
+            <h1 className="text-display-sm lg:text-display text-foreground mb-4">{t('title')}</h1>
+            <p className="text-body-lg text-muted-foreground max-w-2xl">{t('description')}</p>
           </div>
 
           {/* Open Positions */}
           {openPositions.length > 0 ? (
             <div className="space-y-6">
-              <h2 className="text-subheading text-foreground">
-                {t('openPositions')}
-              </h2>
+              <h2 className="text-subheading text-foreground">{t('openPositions')}</h2>
               {openPositions.map((job) => (
                 <JobCard key={job.id} job={job} onApply={setSelectedJob} />
               ))}
@@ -498,20 +483,13 @@ export default function CareersPage() {
             <h3 className="text-subheading text-foreground mb-2">
               {t('generalApplication.title')}
             </h3>
-            <p className="text-body text-muted-foreground">
-              {t('generalApplication.description')}
-            </p>
+            <p className="text-body text-muted-foreground">{t('generalApplication.description')}</p>
           </div>
         </div>
       </Section>
 
       {/* Application Modal */}
-      {selectedJob && (
-        <ApplicationModal
-          job={selectedJob}
-          onClose={() => setSelectedJob(null)}
-        />
-      )}
+      {selectedJob && <ApplicationModal job={selectedJob} onClose={() => setSelectedJob(null)} />}
     </>
   );
 }
