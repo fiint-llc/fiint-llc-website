@@ -3,10 +3,12 @@ import type { MetadataRoute } from 'next';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fiint.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
-  // This site uses localStorage-based i18n (not URL routing),
-  // so we only need single URLs without locale prefixes
+  if (!baseUrl) {
+    throw new Error('NEXT_PUBLIC_SITE_URL env veriable is not set');
+  }
+
   return [
     {
       url: baseUrl,
@@ -22,6 +24,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/careers`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,

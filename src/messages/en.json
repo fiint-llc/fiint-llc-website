@@ -241,7 +241,7 @@
       "addressLabel": "Legal Address",
       "address": "77 Chornovola Ave., office 46, Lviv, 79047, Ukraine",
       "emailLabel": "Email",
-      "email": "hello@fiint.com"
+      "email": "hello@thefiint.com"
     },
     "legal": {
       "title": "Quick Links",
@@ -266,11 +266,11 @@
         },
         "3": {
           "title": "Your rights",
-          "content": "Want to know what data we have about you? Want us to delete it? Just email hello@fiint.com and we'll take care of it."
+          "content": "Want to know what data we have about you? Want us to delete it? Just email hello@thefiint.com and we'll take care of it."
         },
         "4": {
           "title": "Questions",
-          "content": "If you have any questions about how we handle your data, reach out to hello@fiint.com."
+          "content": "If you have any questions about how we handle your data, reach out to hello@thefiint.com."
         }
       }
     }
@@ -311,7 +311,7 @@
     "applyNow": "Apply Now",
     "generalApplication": {
       "title": "Don't see the right fit?",
-      "description": "We're always looking for talented people. Send your CV to hello@fiint.com and tell us what you're passionate about."
+      "description": "We're always looking for talented people. Send your CV to hello@thefiint.com and tell us what you're passionate about."
     },
     "positions": {
       "seniorBackendEngineer": {
@@ -354,7 +354,7 @@
       },
       "error": {
         "title": "Something went wrong",
-        "description": "Please try again later or email us directly at hello@fiint.com."
+        "description": "Please try again later or email us directly at hello@thefiint.com."
       },
       "validation": {
         "firstNameRequired": "First name is required",

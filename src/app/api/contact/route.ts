@@ -117,10 +117,16 @@ Submitted at: ${new Date().toISOString()}
 IP: ${ip}
     `.trim();
 
+    ['CONTACT_FROM_EMAIL', 'CONTACT_TO_EMAIL'].forEach((name) => {
+      if (!process.env[name]) {
+        throw new Error(`${name} env veriable is not set`);
+      }
+    });
+
     // Send email
     await transporter.sendMail({
-      from: process.env.CONTACT_FROM_EMAIL || 'noreply@fiint.com',
-      to: process.env.CONTACT_TO_EMAIL || 'contact@fiint.com',
+      from: process.env.CONTACT_FROM_EMAIL,
+      to: process.env.CONTACT_TO_EMAIL,
       replyTo: email,
       subject: `[FI Int Contact] New message from ${name}`,
       text: emailContent,

@@ -151,19 +151,20 @@ export function Footer() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-neutral-400">
-              {t('copyright', { year: currentYear })} •{' '}
+          <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 text-center sm:text-left">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0 text-sm text-neutral-400">
+              <span>{t('copyright', { year: currentYear })}</span>
+              <span className="hidden sm:inline"> • </span>
               <a
                 href="https://city.diia.gov.ua/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white transition-colors inline-flex items-center gap-1 group"
+                className="hover:text-white transition-colors inline-flex items-center justify-center sm:justify-start gap-1 group"
               >
                 {t('legal.diaCity')}
                 <ArrowUpRight className="size-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
-            </p>
+            </div>
             <p className="text-sm text-neutral-400">
               Software Development •{' '}
               <a

@@ -171,10 +171,16 @@ IP: ${ip}
 CV Attached: ${cvBuffer ? 'Yes' : 'No'}
     `.trim();
 
+    ['CONTACT_FROM_EMAIL', 'CONTACT_TO_EMAIL'].forEach((name) => {
+      if (!process.env[name]) {
+        throw new Error(`${name} env veriable is not set`);
+      }
+    });
+
     // Build email options
     const mailOptions = {
-      from: process.env.CONTACT_FROM_EMAIL || 'noreply@fiint.com',
-      to: process.env.CAREERS_TO_EMAIL || process.env.CONTACT_TO_EMAIL || 'careers@fiint.com',
+      from: process.env.CONTACT_FROM_EMAIL,
+      to: process.env.CAREERS_TO_EMAIL || process.env.CONTACT_TO_EMAIL,
       replyTo: email,
       subject: `[FI Int Careers] Application for ${jobTitle} from ${firstName} ${lastName}`,
       text: emailContent,

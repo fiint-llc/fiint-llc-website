@@ -6,8 +6,12 @@ import { Footer } from '@/components/layout/Footer';
 import { Toaster } from '@/components/ui/Toast';
 import '@/app/globals.css';
 
+if (!process.env.NEXT_PUBLIC_SITE_URL) {
+  throw new Error('NEXT_PUBLIC_SITE_URL env veriable is not set');
+}
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://fiint.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
   title: {
     default: 'FI Int LLC - Finance Intelligence for Your Business',
     template: '%s | FI Int LLC',
