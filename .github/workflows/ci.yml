@@ -10,6 +10,17 @@ jobs:
   lint-and-build:
     name: Lint, Type Check & Build
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+      SMTP_HOST: ${{ vars.SMTP_HOST }}
+      SMTP_PORT: ${{ vars.SMTP_PORT }}
+      SMTP_SECURE: ${{ vars.SMTP_SECURE }}
+      SMTP_USER: ${{ vars.SMTP_USER }}
+      SMTP_PASS: ${{ secrets.SMTP_PASS }}
+      CONTACT_TO_EMAIL: ${{ vars.CONTACT_TO_EMAIL }}
+      CONTACT_FROM_EMAIL: ${{ vars.CONTACT_FROM_EMAIL }}
+      CAREERS_TO_EMAIL: ${{ vars.CAREERS_TO_EMAIL }}
+      RATE_LIMIT_MAX: ${{ vars.RATE_LIMIT_MAX }}
 
     steps:
       - name: Checkout
@@ -42,6 +53,17 @@ jobs:
     name: E2E Tests
     runs-on: ubuntu-latest
     needs: lint-and-build
+    env:
+      NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+      SMTP_HOST: ${{ vars.SMTP_HOST }}
+      SMTP_PORT: ${{ vars.SMTP_PORT }}
+      SMTP_SECURE: ${{ vars.SMTP_SECURE }}
+      SMTP_USER: ${{ vars.SMTP_USER }}
+      SMTP_PASS: ${{ secrets.SMTP_PASS }}
+      CONTACT_TO_EMAIL: ${{ vars.CONTACT_TO_EMAIL }}
+      CONTACT_FROM_EMAIL: ${{ vars.CONTACT_FROM_EMAIL }}
+      CAREERS_TO_EMAIL: ${{ vars.CAREERS_TO_EMAIL }}
+      RATE_LIMIT_MAX: ${{ vars.RATE_LIMIT_MAX }}
 
     steps:
       - name: Checkout
