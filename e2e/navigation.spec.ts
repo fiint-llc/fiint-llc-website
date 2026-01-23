@@ -44,25 +44,25 @@ test.describe('Theme Toggle', () => {
   test('should toggle between light and dark mode', async ({ page }) => {
     await page.goto('/');
 
-    // Find the theme toggle button by its aria-label
-    const themeToggle = page.locator('button[aria-label*="Switch to"], button[aria-label*="theme" i]').first();
-    await expect(themeToggle).toBeVisible();
+    // Wait for the theme toggle to be mounted (it shows Sun or Moon icon after mount)
+    // The mounted button has aria-label "Switch to light mode" or "Switch to dark mode"
+    const themeToggle = page.locator('button[aria-label^="Switch to"]').first();
+    await expect(themeToggle).toBeVisible({ timeout: 10000 });
 
     // Get initial theme
     const html = page.locator('html');
-    const initialClass = await html.getAttribute('class') || '';
+    const initialClass = (await html.getAttribute('class')) || '';
     const wasDark = initialClass.includes('dark');
 
     // Click toggle
     await themeToggle.click();
 
-    // Wait for theme change and localStorage update
-    await page.waitForTimeout(500);
-
-    // Check theme changed
-    const newClass = (await html.getAttribute('class')) || '';
-    const isDark = newClass.includes('dark');
-    expect(isDark).not.toBe(wasDark);
+    // Wait for theme to actually change on the html element
+    if (wasDark) {
+      await expect(html).not.toHaveClass(/dark/, { timeout: 5000 });
+    } else {
+      await expect(html).toHaveClass(/dark/, { timeout: 5000 });
+    }
   });
 });
 
