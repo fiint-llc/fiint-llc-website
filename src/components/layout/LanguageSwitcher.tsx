@@ -59,7 +59,7 @@ export function LanguageSwitcher({ variant = 'icon' }: LanguageSwitcherProps) {
   return (
     <div className="relative" ref={dropdownRef}>
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen((open) => !open)}
         className={cn(
           'flex items-center gap-1.5 px-2.5 py-1.5 rounded-md hover:bg-accent transition-colors',
           'focus:outline-none focus-visible:ring-2 focus-visible:ring-ring',

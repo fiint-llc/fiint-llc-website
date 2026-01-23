@@ -77,7 +77,7 @@ export function Header() {
           <Logo href="/" />
           <button
             className="p-2 -mr-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen((open) => !open)}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
           >
