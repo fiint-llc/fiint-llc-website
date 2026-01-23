@@ -1,13 +1,13 @@
-import type { Metadata, Viewport } from 'next';
-import { ThemeProvider } from 'next-themes';
-import { LocaleProvider } from '@/i18n/LocaleContext';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { Toaster } from '@/components/ui/Toast';
-import '@/app/globals.css';
+import type { Metadata, Viewport } from 'next'
+import { ThemeProvider } from 'next-themes'
+import { LocaleProvider } from '@/i18n/LocaleContext'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
+import { Toaster } from '@/components/ui/Toast'
+import '@/app/globals.css'
 
 if (!process.env.NEXT_PUBLIC_SITE_URL) {
-  throw new Error('NEXT_PUBLIC_SITE_URL env variable is not set');
+  throw new Error('NEXT_PUBLIC_SITE_URL env variable is not set')
 }
 
 export const metadata: Metadata = {
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     description:
       'We build software that helps businesses understand their finances and make smarter decisions.',
   },
-};
+}
 
 export const viewport: Viewport = {
   themeColor: [
@@ -62,7 +62,7 @@ export const viewport: Viewport = {
   ],
   width: 'device-width',
   initialScale: 1,
-};
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -94,5 +94,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

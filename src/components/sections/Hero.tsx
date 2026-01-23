@@ -1,13 +1,13 @@
-'use client';
+'use client'
 
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-import { ArrowRight, ChevronDown, Sparkles } from 'lucide-react';
-import { Section } from '../layout/Section';
-import { Button } from '../ui/Button';
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+import { ArrowRight, ChevronDown, Sparkles } from 'lucide-react'
+import { Section } from '../layout/Section'
+import { Button } from '../ui/Button'
 
 export function HeroSection() {
-  const t = useTranslations('hero');
+  const t = useTranslations('hero')
 
   return (
     <Section className="pt-28 lg:pt-36 pb-20 lg:pb-28 relative overflow-hidden bg-aurora">
@@ -77,5 +77,5 @@ export function HeroSection() {
       {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </Section>
-  );
+  )
 }

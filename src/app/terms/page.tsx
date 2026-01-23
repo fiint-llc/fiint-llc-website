@@ -1,16 +1,16 @@
-'use client';
+'use client'
 
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
-import { Section } from '@/components/layout/Section';
-import { Button } from '@/components/ui/Button';
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
+import { Section } from '@/components/layout/Section'
+import { Button } from '@/components/ui/Button'
 
 export default function TermsPage() {
-  const t = useTranslations('terms');
-  const tCommon = useTranslations('common');
+  const t = useTranslations('terms')
+  const tCommon = useTranslations('common')
 
-  const sections = [1, 2, 3, 4];
+  const sections = [1, 2, 3, 4]
 
   return (
     <Section className="pt-32">
@@ -44,5 +44,5 @@ export default function TermsPage() {
         </div>
       </div>
     </Section>
-  );
+  )
 }

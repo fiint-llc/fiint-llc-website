@@ -1,17 +1,17 @@
-import * as React from 'react';
-import { cn } from '@/lib/utils';
-import { Container } from './Container';
+import * as React from 'react'
+import { cn } from '@/lib/utils'
+import { Container } from './Container'
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
-  children: React.ReactNode;
+  children: React.ReactNode
   /** Whether to use gradient background */
-  gradient?: boolean;
+  gradient?: boolean
   /** Use warm cream background */
-  warm?: boolean;
+  warm?: boolean
   /** Container size variant */
-  containerSize?: 'default' | 'narrow' | 'wide';
+  containerSize?: 'default' | 'narrow' | 'wide'
   /** Optional ID for anchor links */
-  sectionId?: string;
+  sectionId?: string
 }
 
 /**
@@ -40,14 +40,14 @@ export function Section({
     >
       <Container size={containerSize}>{children}</Container>
     </section>
-  );
+  )
 }
 
 interface SectionHeaderProps {
-  label?: string;
-  title: string;
-  description?: string;
-  align?: 'left' | 'center';
+  label?: string
+  title: string
+  description?: string
+  align?: 'left' | 'center'
 }
 
 /**
@@ -65,5 +65,5 @@ export function SectionHeader({ label, title, description, align = 'center' }: S
       <h2 className="text-display-sm lg:text-display text-foreground mb-4">{title}</h2>
       {description && <p className="text-body-lg text-muted-foreground">{description}</p>}
     </div>
-  );
+  )
 }

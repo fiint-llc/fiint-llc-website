@@ -1,20 +1,20 @@
-'use client';
+'use client'
 
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-import { MessageSquare, Clock, Layers, Sparkles } from 'lucide-react';
-import { Section, SectionHeader } from '../layout/Section';
-import { Button } from '../ui/Button';
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+import { MessageSquare, Clock, Layers, Sparkles } from 'lucide-react'
+import { Section, SectionHeader } from '../layout/Section'
+import { Button } from '../ui/Button'
 
-const factorIcons = [Layers, Clock, Sparkles];
+const factorIcons = [Layers, Clock, Sparkles]
 
 export function PricingSection() {
-  const t = useTranslations('pricing');
+  const t = useTranslations('pricing')
 
   const factors = factorIcons.map((icon, index) => ({
     key: String(index + 1),
     icon,
-  }));
+  }))
 
   return (
     <Section sectionId="pricing">
@@ -54,5 +54,5 @@ export function PricingSection() {
         </div>
       </div>
     </Section>
-  );
+  )
 }

@@ -1,31 +1,31 @@
-import * as React from 'react';
-import Link from 'next/link';
-import { cn } from '@/lib/utils';
+import * as React from 'react'
+import Link from 'next/link'
+import { cn } from '@/lib/utils'
 
 interface LogoProps {
-  className?: string;
-  showText?: boolean;
-  href?: string;
-  variant?: 'default' | 'mono' | 'icon';
-  size?: 'sm' | 'md' | 'lg';
+  className?: string
+  showText?: boolean
+  href?: string
+  variant?: 'default' | 'mono' | 'icon'
+  size?: 'sm' | 'md' | 'lg'
 }
 
 interface LogoMarkSvgProps {
-  iconSize: string;
-  variant: 'default' | 'mono' | 'icon';
+  iconSize: string
+  variant: 'default' | 'mono' | 'icon'
 }
 
 interface LogoContentProps {
-  className?: string;
-  showText: boolean;
-  variant: 'default' | 'mono' | 'icon';
-  iconSize: string;
-  textSize: string;
-  gap: string;
+  className?: string
+  showText: boolean
+  variant: 'default' | 'mono' | 'icon'
+  iconSize: string
+  textSize: string
+  gap: string
 }
 
 function LogoMarkSvg({ iconSize, variant }: LogoMarkSvgProps) {
-  const gradientId = React.useId();
+  const gradientId = React.useId()
 
   return (
     <svg
@@ -125,7 +125,7 @@ function LogoMarkSvg({ iconSize, variant }: LogoMarkSvgProps) {
         opacity={variant === 'mono' ? 0.3 : 0.5}
       />
     </svg>
-  );
+  )
 }
 
 function LogoContent({ className, showText, variant, iconSize, textSize, gap }: LogoContentProps) {
@@ -156,7 +156,7 @@ function LogoContent({ className, showText, variant, iconSize, textSize, gap }: 
         </div>
       )}
     </div>
-  );
+  )
 }
 
 /**
@@ -183,9 +183,9 @@ export function Logo({
     sm: { icon: 'h-8 w-8', text: 'text-lg', gap: 'gap-2' },
     md: { icon: 'h-10 w-10', text: 'text-xl', gap: 'gap-2.5' },
     lg: { icon: 'h-12 w-12', text: 'text-2xl', gap: 'gap-3' },
-  };
+  }
 
-  const { icon: iconSize, text: textSize, gap } = sizes[size];
+  const { icon: iconSize, text: textSize, gap } = sizes[size]
 
   if (href) {
     return (
@@ -202,7 +202,7 @@ export function Logo({
           gap={gap}
         />
       </Link>
-    );
+    )
   }
 
   return (
@@ -214,7 +214,7 @@ export function Logo({
       textSize={textSize}
       gap={gap}
     />
-  );
+  )
 }
 
 /**
@@ -225,17 +225,17 @@ export function LogoMark({
   variant = 'default',
   size = 'md',
 }: {
-  className?: string;
-  variant?: 'default' | 'mono';
-  size?: 'sm' | 'md' | 'lg';
+  className?: string
+  variant?: 'default' | 'mono'
+  size?: 'sm' | 'md' | 'lg'
 }) {
   const sizes = {
     sm: 'h-7 w-7',
     md: 'h-9 w-9',
     lg: 'h-11 w-11',
-  };
+  }
 
-  const gradientId = React.useId();
+  const gradientId = React.useId()
 
   return (
     <svg
@@ -330,5 +330,5 @@ export function LogoMark({
         opacity={variant === 'mono' ? 0.3 : 0.5}
       />
     </svg>
-  );
+  )
 }

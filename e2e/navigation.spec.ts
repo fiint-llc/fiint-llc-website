@@ -1,120 +1,123 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '@playwright/test'
 
 test.describe('Navigation', () => {
   test('should load homepage and display logo', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/')
 
     // Check logo is visible
-    const logo = page.locator('a[href="/"] svg').first();
-    await expect(logo).toBeVisible();
+    const logo = page.locator('a[href="/"] svg').first()
+    await expect(logo).toBeVisible()
 
     // Check page title
-    await expect(page).toHaveTitle(/FI Int/);
-  });
+    await expect(page).toHaveTitle(/FI Int/)
+  })
 
   test('should navigate to sections via header links', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/')
 
     // Click Services link (use first() to avoid multiple matches)
-    await page.locator('header a[href="/#services"]').first().click();
-    await expect(page.locator('#services')).toBeInViewport();
+    await page.locator('header a[href="/#services"]').first().click()
+    await expect(page.locator('#services')).toBeInViewport()
 
     // Click Pricing link
-    await page.locator('header a[href="/#pricing"]').first().click();
-    await expect(page.locator('#pricing')).toBeInViewport();
+    await page.locator('header a[href="/#pricing"]').first().click()
+    await expect(page.locator('#pricing')).toBeInViewport()
 
     // Click Contact link
-    await page.locator('header a[href="/#contact"]').first().click();
-    await expect(page.locator('#contact')).toBeInViewport();
-  });
+    await page.locator('header a[href="/#contact"]').first().click()
+    await expect(page.locator('#contact')).toBeInViewport()
+  })
 
   test('should navigate to careers page', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/')
 
     // Scroll to footer and click careers link
-    await page.locator('footer').scrollIntoViewIfNeeded();
-    await page.click('footer a[href="/careers"]');
+    await page.locator('footer').scrollIntoViewIfNeeded()
+    await page.click('footer a[href="/careers"]')
 
-    await expect(page).toHaveURL('/careers');
-    await expect(page.locator('h1')).toContainText(/Join|Career/i);
-  });
-});
+    await expect(page).toHaveURL('/careers')
+    await expect(page.locator('h1')).toContainText(/Join|Career/i)
+  })
+})
 
 test.describe('Theme Toggle', () => {
   test('should toggle between light and dark mode', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/')
 
     // Wait for the theme toggle to be mounted (it shows Sun or Moon icon after mount)
     // The mounted button has aria-label "Switch to light mode" or "Switch to dark mode"
-    const themeToggle = page.locator('button[aria-label^="Switch to"]').first();
-    await expect(themeToggle).toBeVisible({ timeout: 10000 });
+    const themeToggle = page.locator('button[aria-label^="Switch to"]').first()
+    await expect(themeToggle).toBeVisible({ timeout: 10000 })
 
     // Get initial theme
     const html = page.locator('html');
-    const initialClass = (await html.getAttribute('class')) || '';
-    const wasDark = initialClass.includes('dark');
+    const initialClass = (await html.getAttribute('class')) || ''
+    const wasDark = initialClass.includes('dark')
 
     // Click toggle
-    await themeToggle.click();
+    await themeToggle.click()
 
     // Wait for theme to actually change on the html element
     if (wasDark) {
-      await expect(html).not.toHaveClass(/dark/, { timeout: 5000 });
+      await expect(html).not.toHaveClass(/dark/, { timeout: 5000 })
     } else {
-      await expect(html).toHaveClass(/dark/, { timeout: 5000 });
+      await expect(html).toHaveClass(/dark/, { timeout: 5000 })
     }
   });
 });
 
 test.describe('Language Switcher', () => {
   test('should switch between English and Ukrainian', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/')
 
     // Find language switcher in header
-    const langSwitcher = page.locator('header button:has-text("EN")').first();
-    await expect(langSwitcher).toBeVisible();
+    const langSwitcher = page.locator('header button:has-text("EN")').first()
+    await expect(langSwitcher).toBeVisible()
 
     // Click to open dropdown
-    await langSwitcher.click();
+    await langSwitcher.click()
 
     // Click Ukrainian option
-    await page.locator('button:has-text("Українська"), [role="menuitem"]:has-text("Українська")').first().click();
+    await page
+      .locator('button:has-text("Українська"), [role="menuitem"]:has-text("Українська")')
+      .first()
+      .click()
 
     // Wait for content to update
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(500)
 
     // Check that Ukrainian content appears somewhere on the page
-    const pageContent = await page.textContent('body');
-    expect(pageContent).toMatch(/Фінансовий|Послуги|Контакт|Головна/);
-  });
-});
+    const pageContent = await page.textContent('body')
+    expect(pageContent).toMatch(/Фінансовий|Послуги|Контакт|Головна/)
+  })
+})
 
 test.describe('Responsive Design', () => {
   test('should show mobile menu on small screens', async ({ page }) => {
     // Set mobile viewport
-    await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('/');
+    await page.setViewportSize({ width: 375, height: 667 })
+    await page.goto('/')
 
     // Wait for page to fully load and any overlays to settle
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle')
 
     // Mobile menu button should be visible (has specific aria-label)
-    const menuButton = page.locator('button[aria-label="Open menu"]');
-    await expect(menuButton).toBeVisible();
+    const menuButton = page.locator('button[aria-label="Open menu"]')
+    await expect(menuButton).toBeVisible()
 
     // Scroll to top to ensure header is fully visible
-    await page.evaluate(() => window.scrollTo(0, 0));
-    await page.waitForTimeout(100);
+    await page.evaluate(() => window.scrollTo(0, 0))
+    await page.waitForTimeout(100)
 
     // Click to open menu
-    await menuButton.click();
+    await menuButton.click()
 
     // Wait for menu animation (max-h transition)
-    await page.waitForTimeout(300);
+    await page.waitForTimeout(300)
 
     // Mobile menu links are inside the header, not a dialog
     // Check that the mobile nav link becomes visible after menu opens
-    const mobileNavLink = page.locator('header a[href="/#services"]').last();
-    await expect(mobileNavLink).toBeVisible({ timeout: 5000 });
-  });
-});
+    const mobileNavLink = page.locator('header a[href="/#services"]').last()
+    await expect(mobileNavLink).toBeVisible({ timeout: 5000 })
+  })
+})

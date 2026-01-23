@@ -1,19 +1,19 @@
-'use client';
+'use client'
 
-import { useTranslations } from 'next-intl';
-import { Search, PenTool, Rocket } from 'lucide-react';
-import { Section, SectionHeader } from '../layout/Section';
+import { useTranslations } from 'next-intl'
+import { Search, PenTool, Rocket } from 'lucide-react'
+import { Section, SectionHeader } from '../layout/Section'
 
-const stepIcons = [Search, PenTool, Rocket];
+const stepIcons = [Search, PenTool, Rocket]
 
 export function HowItWorksSection() {
-  const t = useTranslations('howItWorks');
+  const t = useTranslations('howItWorks')
 
   const steps = stepIcons.map((icon, index) => ({
     key: String(index + 1),
     number: index + 1,
     icon,
-  }));
+  }))
 
   return (
     <Section sectionId="how-it-works" className="bg-orbs relative">
@@ -49,5 +49,5 @@ export function HowItWorksSection() {
         ))}
       </div>
     </Section>
-  );
+  )
 }

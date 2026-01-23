@@ -1,37 +1,37 @@
-'use client';
+'use client'
 
-import * as React from 'react';
-import Link from 'next/link';
-import { useTranslations } from 'next-intl';
-import { Menu, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Container } from './Container';
-import { Logo } from './Logo';
-import { Button } from '../ui/Button';
-import { ThemeToggle } from './ThemeToggle';
-import { LanguageSwitcher } from './LanguageSwitcher';
+import * as React from 'react'
+import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Menu, X } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { Container } from './Container'
+import { Logo } from './Logo'
+import { Button } from '../ui/Button'
+import { ThemeToggle } from './ThemeToggle'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function Header() {
-  const t = useTranslations('nav');
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [isScrolled, setIsScrolled] = React.useState(false);
+  const t = useTranslations('nav')
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  const [isScrolled, setIsScrolled] = React.useState(false)
 
   // Handle scroll for header background
   React.useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+      setIsScrolled(window.scrollY > 10)
+    }
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navLinks = [
     { href: '/#services', label: t('services') },
     { href: '/#how-it-works', label: t('howItWorks') },
     { href: '/#pricing', label: t('pricing') },
     { href: '/#about', label: t('about') },
-  ];
+  ]
 
   return (
     <header
@@ -114,5 +114,5 @@ export function Header() {
         </div>
       </Container>
     </header>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'zod'
 
 export const careerApplicationSchema = z.object({
   firstName: z.string().min(1, 'firstNameRequired'),
@@ -11,19 +11,19 @@ export const careerApplicationSchema = z.object({
   website: z.string().max(0).optional(),
   // Timestamp for timing check
   timestamp: z.number(),
-});
+})
 
-export type CareerApplicationData = z.infer<typeof careerApplicationSchema>;
+export type CareerApplicationData = z.infer<typeof careerApplicationSchema>
 
 // Job position type
 export interface JobPosition {
-  id: string;
-  titleKey: string;
-  locationKey: string;
-  typeKey: string;
-  descriptionKey: string;
-  requirementsKeys: string[];
-  niceToHaveKeys?: string[];
+  id: string
+  titleKey: string
+  locationKey: string
+  typeKey: string
+  descriptionKey: string
+  requirementsKeys: string[]
+  niceToHaveKeys?: string[]
 }
 
 // Open positions - add new jobs here
@@ -43,17 +43,17 @@ export const openPositions: JobPosition[] = [
     ],
     niceToHaveKeys: ['seniorBackendEngineer.niceToHave.1', 'seniorBackendEngineer.niceToHave.2'],
   },
-];
+]
 
 // Maximum file size for CV (5MB)
-export const MAX_CV_SIZE = 5 * 1024 * 1024;
+export const MAX_CV_SIZE = 5 * 1024 * 1024
 
 // Allowed file types for CV
 export const ALLOWED_CV_TYPES = [
   'application/pdf',
   'application/msword',
   'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-];
+]
 
 // Minimum time (ms) between page load and form submission
-export const MIN_SUBMIT_TIME = 3000;
+export const MIN_SUBMIT_TIME = 3000

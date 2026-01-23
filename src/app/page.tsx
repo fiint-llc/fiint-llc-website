@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import {
   HeroSection,
@@ -11,7 +11,7 @@ import {
   PricingSection,
   FAQSection,
   ContactSection,
-} from '@/components/sections';
+} from '@/components/sections'
 
 export default function HomePage() {
   return (
@@ -27,5 +27,5 @@ export default function HomePage() {
       <FAQSection />
       <ContactSection />
     </>
-  );
+  )
 }

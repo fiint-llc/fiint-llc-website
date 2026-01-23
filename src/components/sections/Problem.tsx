@@ -1,20 +1,20 @@
-'use client';
+'use client'
 
-import { useTranslations } from 'next-intl';
-import { Database, Layers, Clock } from 'lucide-react';
-import { Section, SectionHeader } from '../layout/Section';
+import { useTranslations } from 'next-intl'
+import { Database, Layers, Clock } from 'lucide-react'
+import { Section, SectionHeader } from '../layout/Section'
 
-const icons = [Database, Layers, Clock];
-const colors = ['primary', 'secondary', 'accent'] as const;
+const icons = [Database, Layers, Clock]
+const colors = ['primary', 'secondary', 'accent'] as const
 
 export function ProblemSection() {
-  const t = useTranslations('problem');
+  const t = useTranslations('problem')
 
   const points = [
     { key: '1', icon: icons[0], color: colors[0] },
     { key: '2', icon: icons[1], color: colors[1] },
     { key: '3', icon: icons[2], color: colors[2] },
-  ];
+  ]
 
   const colorClasses = {
     primary: {
@@ -32,7 +32,7 @@ export function ProblemSection() {
       icon: 'text-amber-500',
       hover: 'group-hover:bg-amber-500/15 dark:group-hover:bg-amber-500/25',
     },
-  };
+  }
 
   return (
     <Section sectionId="problem" className="bg-mesh-clean relative">
@@ -40,7 +40,7 @@ export function ProblemSection() {
 
       <div className="grid md:grid-cols-3 gap-6 stagger-children">
         {points.map(({ key, icon: Icon, color }) => {
-          const classes = colorClasses[color];
+          const classes = colorClasses[color]
           return (
             <div key={key} className="card-elevated p-8 group">
               <div
@@ -53,9 +53,9 @@ export function ProblemSection() {
                 {t(`points.${key}.description`)}
               </p>
             </div>
-          );
+          )
         })}
       </div>
     </Section>
-  );
+  )
 }

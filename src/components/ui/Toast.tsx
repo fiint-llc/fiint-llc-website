@@ -1,8 +1,8 @@
-'use client';
+'use client'
 
-import { Toaster as Sonner, toast } from 'sonner';
+import { Toaster as Sonner, toast } from 'sonner'
 
-type ToasterProps = React.ComponentProps<typeof Sonner>;
+type ToasterProps = React.ComponentProps<typeof Sonner>
 
 const Toaster = ({ ...props }: ToasterProps) => {
   return (
@@ -19,21 +19,21 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }}
       {...props}
     />
-  );
-};
+  )
+}
 
 // Re-export toast function and Toaster component
-export { Toaster, toast };
+export { Toaster, toast }
 
 // Legacy exports for backwards compatibility
 export function useToast() {
   return {
     showToast: (message: string, type: 'success' | 'error') => {
       if (type === 'success') {
-        toast.success(message);
+        toast.success(message)
       } else {
-        toast.error(message);
+        toast.error(message)
       }
     },
-  };
+  }
 }
