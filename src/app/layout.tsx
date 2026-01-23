@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { ThemeProvider } from 'next-themes'
+import { Analytics } from '@vercel/analytics/react'
 import { LocaleProvider } from '@/i18n/LocaleContext'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -92,6 +93,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Toaster />
           </LocaleProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
