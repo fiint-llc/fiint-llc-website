@@ -368,7 +368,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: hsl(var(--background));
+  overscroll-behavior: none;
 }
 
 body {
@@ -378,6 +378,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
 }
 
 button {
@@ -513,7 +514,7 @@ footer ::selection {
     hsl(var(--gradient-start))
   );
   background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  animation: gradientShift 5s ease infinite;
 }
 
 /* ============================================
@@ -613,7 +614,7 @@ footer ::selection {
   border-radius: 50%;
   filter: blur(60px);
   opacity: 0.4;
-  animation: blob 20s ease-in-out infinite;
+  animation: blob 10s ease-in-out infinite;
 }
 
 .blob-primary {
@@ -659,16 +660,18 @@ footer ::selection {
   inset: -50%;
   background: conic-gradient(
     from 180deg at 50% 50%,
-    hsl(var(--primary) / 0.15) 0deg,
-    hsl(var(--secondary) / 0.1) 60deg,
-    hsl(45 100% 60% / 0.08) 120deg,
-    hsl(var(--primary) / 0.12) 180deg,
-    hsl(280 80% 60% / 0.08) 240deg,
-    hsl(var(--secondary) / 0.1) 300deg,
-    hsl(var(--primary) / 0.15) 360deg
+    hsl(var(--primary) / 0.18) 0deg,
+    hsl(280 70% 55% / 0.15) 45deg,
+    hsl(var(--secondary) / 0.12) 90deg,
+    hsl(45 100% 60% / 0.1) 135deg,
+    hsl(var(--primary) / 0.15) 180deg,
+    hsl(280 80% 60% / 0.18) 225deg,
+    hsl(260 70% 55% / 0.12) 270deg,
+    hsl(var(--secondary) / 0.12) 315deg,
+    hsl(var(--primary) / 0.18) 360deg
   );
   filter: blur(100px);
-  animation: rotate 30s linear infinite;
+  animation: rotate 15s linear infinite;
 }
 
 .dark .bg-aurora::before {
@@ -828,7 +831,7 @@ footer ::selection {
   width: 40%;
   height: 40%;
   background: hsl(var(--primary) / 0.15);
-  animation: float 20s ease-in-out infinite;
+  animation: float 10s ease-in-out infinite;
 }
 
 .bg-orbs::after {
@@ -837,7 +840,7 @@ footer ::selection {
   width: 50%;
   height: 50%;
   background: hsl(var(--secondary) / 0.1);
-  animation: float 25s ease-in-out infinite reverse;
+  animation: float 12.5s ease-in-out infinite reverse;
 }
 
 .dark .bg-orbs::before {
@@ -846,6 +849,35 @@ footer ::selection {
 
 .dark .bg-orbs::after {
   background: hsl(var(--secondary) / 0.2);
+}
+
+/* Purple accent orb for light mode hero - adds visual pop */
+.bg-aurora::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 35%;
+  height: 35%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    hsl(280 70% 60% / 0.2) 0%,
+    hsl(260 60% 55% / 0.1) 40%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.dark .bg-aurora::after {
+  background: radial-gradient(
+    circle at center,
+    hsl(280 70% 60% / 0.25) 0%,
+    hsl(260 60% 55% / 0.15) 40%,
+    transparent 70%
+  );
 }
 
 /* Noise texture overlay */
