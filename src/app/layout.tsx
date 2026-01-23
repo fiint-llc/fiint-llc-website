@@ -7,7 +7,7 @@ import { Toaster } from '@/components/ui/Toast';
 import '@/app/globals.css';
 
 if (!process.env.NEXT_PUBLIC_SITE_URL) {
-  throw new Error('NEXT_PUBLIC_SITE_URL env veriable is not set');
+  throw new Error('NEXT_PUBLIC_SITE_URL env variable is not set');
 }
 
 export const metadata: Metadata = {

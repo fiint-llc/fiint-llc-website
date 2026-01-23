@@ -173,7 +173,7 @@ CV Attached: ${cvBuffer ? 'Yes' : 'No'}
 
     ['CONTACT_FROM_EMAIL', 'CONTACT_TO_EMAIL'].forEach((name) => {
       if (!process.env[name]) {
-        throw new Error(`${name} env veriable is not set`);
+        throw new Error(`${name} env variable is not set`);
       }
     });
 

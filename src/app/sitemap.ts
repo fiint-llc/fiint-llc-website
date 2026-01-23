@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   if (!baseUrl) {
-    throw new Error('NEXT_PUBLIC_SITE_URL env veriable is not set');
+    throw new Error('NEXT_PUBLIC_SITE_URL env variable is not set');
   }
 
   return [
