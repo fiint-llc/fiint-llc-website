@@ -242,7 +242,7 @@ function ApplicationModal({ job, onClose }: { job: JobPosition; onClose: () => v
       {/* Modal */}
       <div
         className="relative rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto border border-border text-foreground"
-        style={{ backgroundColor: 'hsl(var(--card))' }}
+        style={{ backgroundColor: 'hsl(var(--card))', overscrollBehavior: 'contain' }}
       >
         {/* Header */}
         <div

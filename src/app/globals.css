@@ -368,7 +368,7 @@
 
 html {
   scroll-behavior: smooth;
-  overscroll-behavior: none;
+  background-color: hsl(var(--background));
 }
 
 body {
@@ -378,7 +378,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overscroll-behavior: none;
 }
 
 button {
