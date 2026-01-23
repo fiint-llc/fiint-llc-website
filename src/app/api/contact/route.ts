@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
 import { contactSchema, MIN_SUBMIT_TIME } from '@/lib/contact-schema';
 
 // Simple in-memory rate limiting (serverless-safe for basic protection)
@@ -90,8 +89,11 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true });
     }
 
+    // Only import nodemailer when SMTP is configured
+    const nodemailer = await import('nodemailer');
+
     // Create SMTP transporter
-    const transporter = nodemailer.createTransport({
+    const transporter = nodemailer.default.createTransport({
       host: process.env.SMTP_HOST,
       port: parseInt(process.env.SMTP_PORT || '587', 10),
       secure: process.env.SMTP_SECURE === 'true',
