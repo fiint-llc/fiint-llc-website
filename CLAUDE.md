@@ -101,20 +101,43 @@ src/
 Required for production:
 
 ```
-SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS
-CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL
-NEXT_PUBLIC_SITE_URL
+RESEND_API_KEY          # Resend API key for transactional emails
+CONTACT_TO_EMAIL        # Email for contact form submissions
+CAREERS_TO_EMAIL        # Email for job applications
+CONTACT_FROM_EMAIL      # Sender address (must be verified domain in Resend)
+NEXT_PUBLIC_SITE_URL    # Base URL for sitemap and OpenGraph
 ```
 
 See `.env.example` for full list.
 
-### 7. Deployment
+### 7. Email Configuration
+
+**Outgoing emails (website forms):**
+
+- Uses [Resend](https://resend.com) for transactional emails (free tier: 3,000/month)
+- Domain `thefiint.com` must be verified in Resend with DNS records
+- Contact form sends to `CONTACT_TO_EMAIL`
+- Career applications send to `CAREERS_TO_EMAIL`
+
+**Incoming emails (customers contacting directly):**
+
+- Cloudflare Email Routing forwards `hello@thefiint.com` and `careers@thefiint.com`
+- Configured in Cloudflare dashboard under Email Routing
+
+### 8. Analytics
+
+- **Vercel Analytics** — page view tracking (added to root layout)
+- **Vercel Speed Insights** — Core Web Vitals monitoring (added to root layout)
+
+Both are included via `@vercel/analytics` and `@vercel/speed-insights` packages.
+
+### 9. Deployment
 
 - **Platform:** Vercel (free tier)
-- **Domain:** Configured via Vercel
+- **Domain:** Configured via Vercel + Cloudflare DNS
 - **No paid services** — this is a hard requirement
 
-### 8. What NOT to Do
+### 10. What NOT to Do
 
 - Don't introduce paid third-party services
 - Don't hardcode text outside message files
