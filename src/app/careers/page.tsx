@@ -1,8 +1,8 @@
-'use client';
+'use client'
 
-import * as React from 'react';
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import * as React from 'react'
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 import {
   ArrowLeft,
   MapPin,
@@ -14,16 +14,16 @@ import {
   AlertCircle,
   Send,
   FileText,
-} from 'lucide-react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Section } from '@/components/layout/Section';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
-import { Textarea } from '@/components/ui/Textarea';
-import { Label } from '@/components/ui/Label';
-import { Card } from '@/components/ui/Card';
-import { cn } from '@/lib/utils';
+} from 'lucide-react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Section } from '@/components/layout/Section'
+import { Button } from '@/components/ui/Button'
+import { Input } from '@/components/ui/Input'
+import { Textarea } from '@/components/ui/Textarea'
+import { Label } from '@/components/ui/Label'
+import { Card } from '@/components/ui/Card'
+import { cn } from '@/lib/utils'
 import {
   openPositions,
   type JobPosition,
@@ -32,13 +32,13 @@ import {
   MAX_CV_SIZE,
   ALLOWED_CV_TYPES,
   MIN_SUBMIT_TIME,
-} from '@/lib/careers-schema';
+} from '@/lib/careers-schema'
 
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
 
 function JobCard({ job, onApply }: { job: JobPosition; onApply: (job: JobPosition) => void }) {
-  const t = useTranslations('careers.positions');
-  const tCommon = useTranslations('careers');
+  const t = useTranslations('careers.positions')
+  const tCommon = useTranslations('careers')
 
   return (
     <Card className="p-6 lg:p-8 hover:border-primary-500/30 transition-colors">
@@ -104,19 +104,19 @@ function JobCard({ job, onApply }: { job: JobPosition; onApply: (job: JobPositio
         </div>
       </div>
     </Card>
-  );
+  )
 }
 
 function ApplicationModal({ job, onClose }: { job: JobPosition; onClose: () => void }) {
-  const t = useTranslations('careers');
-  const tPositions = useTranslations('careers.positions');
-  const tValidation = useTranslations('careers.form.validation');
+  const t = useTranslations('careers')
+  const tPositions = useTranslations('careers.positions')
+  const tValidation = useTranslations('careers.form.validation')
 
-  const [status, setStatus] = React.useState<FormStatus>('idle');
-  const [cvFile, setCvFile] = React.useState<File | null>(null);
-  const [cvError, setCvError] = React.useState<string | null>(null);
-  const [pageLoadTime] = React.useState(() => Date.now());
-  const fileInputRef = React.useRef<HTMLInputElement>(null);
+  const [status, setStatus] = React.useState<FormStatus>('idle')
+  const [cvFile, setCvFile] = React.useState<File | null>(null)
+  const [cvError, setCvError] = React.useState<string | null>(null)
+  const [pageLoadTime] = React.useState(() => Date.now())
+  const fileInputRef = React.useRef<HTMLInputElement>(null)
 
   const {
     register,
@@ -135,100 +135,100 @@ function ApplicationModal({ job, onClose }: { job: JobPosition; onClose: () => v
       website: '',
       timestamp: pageLoadTime,
     },
-  });
+  })
 
   // Close on escape key
   React.useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [onClose]);
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [onClose])
 
   // Prevent body scroll when modal is open
   React.useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'
     return () => {
-      document.body.style.overflow = '';
-    };
-  }, []);
+      document.body.style.overflow = ''
+    }
+  }, [])
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    setCvError(null);
+    const file = e.target.files?.[0]
+    setCvError(null)
 
     if (!file) {
-      setCvFile(null);
-      return;
+      setCvFile(null)
+      return
     }
 
     if (file.size > MAX_CV_SIZE) {
-      setCvError(tValidation('cvTooLarge'));
-      setCvFile(null);
-      return;
+      setCvError(tValidation('cvTooLarge'))
+      setCvFile(null)
+      return
     }
 
     if (!ALLOWED_CV_TYPES.includes(file.type)) {
-      setCvError(tValidation('cvInvalidType'));
-      setCvFile(null);
-      return;
+      setCvError(tValidation('cvInvalidType'))
+      setCvFile(null)
+      return
     }
 
-    setCvFile(file);
-  };
+    setCvFile(file)
+  }
 
   const onSubmit = async (data: CareerApplicationData) => {
     // Update timestamp
-    data.timestamp = pageLoadTime;
+    data.timestamp = pageLoadTime
 
     // Client-side timing check
     // eslint-disable-next-line react-hooks/purity
     if (Date.now() - pageLoadTime < MIN_SUBMIT_TIME) {
-      setStatus('success');
-      reset();
-      return;
+      setStatus('success')
+      reset()
+      return
     }
 
-    setStatus('submitting');
+    setStatus('submitting')
 
     try {
-      const formData = new FormData();
-      formData.append('firstName', data.firstName);
-      formData.append('lastName', data.lastName);
-      formData.append('email', data.email);
-      formData.append('message', data.message || '');
-      formData.append('jobId', data.jobId);
-      formData.append('jobTitle', data.jobTitle);
-      formData.append('website', data.website || '');
-      formData.append('timestamp', String(pageLoadTime));
+      const formData = new FormData()
+      formData.append('firstName', data.firstName)
+      formData.append('lastName', data.lastName)
+      formData.append('email', data.email)
+      formData.append('message', data.message || '')
+      formData.append('jobId', data.jobId)
+      formData.append('jobTitle', data.jobTitle)
+      formData.append('website', data.website || '')
+      formData.append('timestamp', String(pageLoadTime))
 
       if (cvFile) {
-        formData.append('cv', cvFile);
+        formData.append('cv', cvFile)
       }
 
       const response = await fetch('/api/careers', {
         method: 'POST',
         body: formData,
-      });
+      })
 
       if (response.ok) {
-        setStatus('success');
-        reset();
-        setCvFile(null);
+        setStatus('success')
+        reset()
+        setCvFile(null)
       } else {
-        setStatus('error');
+        setStatus('error')
       }
     } catch {
-      setStatus('error');
+      setStatus('error')
     }
-  };
+  }
 
   const getErrorMessage = (field: keyof CareerApplicationData) => {
-    const error = errors[field];
-    if (!error?.message) return null;
-    return tValidation(error.message as Parameters<typeof tValidation>[0]);
-  };
+    const error = errors[field]
+    if (!error?.message) return null
+    return tValidation(error.message as Parameters<typeof tValidation>[0])
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -357,9 +357,9 @@ function ApplicationModal({ job, onClose }: { job: JobPosition; onClose: () => v
                       <button
                         type="button"
                         onClick={() => {
-                          setCvFile(null);
+                          setCvFile(null)
                           if (fileInputRef.current) {
-                            fileInputRef.current.value = '';
+                            fileInputRef.current.value = ''
                           }
                         }}
                         className="p-1 rounded hover:bg-muted transition-colors"
@@ -434,14 +434,14 @@ function ApplicationModal({ job, onClose }: { job: JobPosition; onClose: () => v
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default function CareersPage() {
-  const t = useTranslations('careers');
-  const tCommon = useTranslations('common');
+  const t = useTranslations('careers')
+  const tCommon = useTranslations('common')
 
-  const [selectedJob, setSelectedJob] = React.useState<JobPosition | null>(null);
+  const [selectedJob, setSelectedJob] = React.useState<JobPosition | null>(null)
 
   return (
     <>
@@ -491,5 +491,5 @@ export default function CareersPage() {
       {/* Application Modal */}
       {selectedJob && <ApplicationModal job={selectedJob} onClose={() => setSelectedJob(null)} />}
     </>
-  );
+  )
 }

@@ -1,18 +1,18 @@
-'use client';
+'use client'
 
-import { useTranslations } from 'next-intl';
-import { BarChart3, Link2, Zap, FileText, LineChart, Code2 } from 'lucide-react';
-import { Section, SectionHeader } from '../layout/Section';
+import { useTranslations } from 'next-intl'
+import { BarChart3, Link2, Zap, FileText, LineChart, Code2 } from 'lucide-react'
+import { Section, SectionHeader } from '../layout/Section'
 
-const serviceIcons = [BarChart3, Link2, Zap, FileText, LineChart, Code2];
+const serviceIcons = [BarChart3, Link2, Zap, FileText, LineChart, Code2]
 
 export function ServicesSection() {
-  const t = useTranslations('services');
+  const t = useTranslations('services')
 
   const services = serviceIcons.map((icon, index) => ({
     key: String(index + 1),
     icon,
-  }));
+  }))
 
   return (
     <Section sectionId="services" className="bg-circuit relative">
@@ -32,5 +32,5 @@ export function ServicesSection() {
         ))}
       </div>
     </Section>
-  );
+  )
 }

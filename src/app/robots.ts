@@ -1,12 +1,12 @@
-import type { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next'
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-static'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
 
   if (!baseUrl) {
-    throw new Error('NEXT_PUBLIC_SITE_URL env is not set');
+    throw new Error('NEXT_PUBLIC_SITE_URL env is not set')
   }
 
   return {
@@ -16,5 +16,5 @@ export default function robots(): MetadataRoute.Robots {
       disallow: ['/api/'],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
-  };
+  }
 }

@@ -1,26 +1,26 @@
-'use client';
+'use client'
 
-import * as React from 'react';
-import { useTranslations } from 'next-intl';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Send, CheckCircle, AlertCircle } from 'lucide-react';
-import { Section, SectionHeader } from '../layout/Section';
-import { Button } from '../ui/Button';
-import { Input } from '../ui/Input';
-import { Textarea } from '../ui/Textarea';
-import { Label } from '../ui/Label';
-import { contactSchema, type ContactFormData, MIN_SUBMIT_TIME } from '@/lib/contact-schema';
-import { cn } from '@/lib/utils';
+import * as React from 'react'
+import { useTranslations } from 'next-intl'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { Section, SectionHeader } from '../layout/Section'
+import { Button } from '../ui/Button'
+import { Input } from '../ui/Input'
+import { Textarea } from '../ui/Textarea'
+import { Label } from '../ui/Label'
+import { contactSchema, type ContactFormData, MIN_SUBMIT_TIME } from '@/lib/contact-schema'
+import { cn } from '@/lib/utils'
 
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
 
 export function ContactSection() {
-  const t = useTranslations('contact');
-  const tValidation = useTranslations('contact.error.validation');
+  const t = useTranslations('contact')
+  const tValidation = useTranslations('contact.error.validation')
 
-  const [status, setStatus] = React.useState<FormStatus>('idle');
-  const [pageLoadTime] = React.useState(() => Date.now());
+  const [status, setStatus] = React.useState<FormStatus>('idle')
+  const [pageLoadTime] = React.useState(() => Date.now())
 
   const {
     register,
@@ -37,47 +37,47 @@ export function ContactSection() {
       website: '', // Honeypot
       timestamp: pageLoadTime,
     },
-  });
+  })
 
   const onSubmit = async (data: ContactFormData) => {
     // Update timestamp
-    data.timestamp = pageLoadTime;
+    data.timestamp = pageLoadTime
 
     // Client-side timing check
     // eslint-disable-next-line react-hooks/purity
     if (Date.now() - pageLoadTime < MIN_SUBMIT_TIME) {
       // Silently reject (likely bot)
-      setStatus('success');
-      reset();
-      return;
+      setStatus('success')
+      reset()
+      return
     }
 
-    setStatus('submitting');
+    setStatus('submitting')
 
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
-      });
+      })
 
       if (response.ok) {
-        setStatus('success');
-        reset();
+        setStatus('success')
+        reset()
       } else {
-        setStatus('error');
+        setStatus('error')
       }
     } catch {
-      setStatus('error');
+      setStatus('error')
     }
-  };
+  }
 
   // Get translated error message
   const getErrorMessage = (field: keyof ContactFormData) => {
-    const error = errors[field];
-    if (!error?.message) return null;
-    return tValidation(error.message as keyof typeof tValidation);
-  };
+    const error = errors[field]
+    if (!error?.message) return null
+    return tValidation(error.message as keyof typeof tValidation)
+  }
 
   return (
     <Section sectionId="contact" warm>
@@ -195,5 +195,5 @@ export function ContactSection() {
         )}
       </div>
     </Section>
-  );
+  )
 }

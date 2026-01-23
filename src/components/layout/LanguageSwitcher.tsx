@@ -1,39 +1,39 @@
-'use client';
+'use client'
 
-import * as React from 'react';
-import { Globe } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { locales, localeLabels, type Locale } from '@/i18n/routing';
-import { useLocale } from '@/i18n/LocaleContext';
+import * as React from 'react'
+import { Globe } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { locales, localeLabels, type Locale } from '@/i18n/routing'
+import { useLocale } from '@/i18n/LocaleContext'
 
 interface LanguageSwitcherProps {
-  variant?: 'icon' | 'full';
+  variant?: 'icon' | 'full'
 }
 
 // Short labels for the compact display
 const localeShortLabels: Record<Locale, string> = {
   en: 'EN',
   ua: 'UA',
-};
+}
 
 export function LanguageSwitcher({ variant = 'icon' }: LanguageSwitcherProps) {
-  const { locale, setLocale } = useLocale();
-  const [isOpen, setIsOpen] = React.useState(false);
-  const dropdownRef = React.useRef<HTMLDivElement>(null);
+  const { locale, setLocale } = useLocale()
+  const [isOpen, setIsOpen] = React.useState(false)
+  const dropdownRef = React.useRef<HTMLDivElement>(null)
 
   // Close dropdown when clicking outside
   React.useEffect(() => {
-    if (variant === 'full') return;
+    if (variant === 'full') return
 
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
+        setIsOpen(false)
       }
-    };
+    }
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [variant]);
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [variant])
 
   if (variant === 'full') {
     return (
@@ -53,7 +53,7 @@ export function LanguageSwitcher({ variant = 'icon' }: LanguageSwitcherProps) {
           </button>
         ))}
       </div>
-    );
+    )
   }
 
   return (
@@ -79,8 +79,8 @@ export function LanguageSwitcher({ variant = 'icon' }: LanguageSwitcherProps) {
               <button
                 key={loc}
                 onClick={() => {
-                  setLocale(loc);
-                  setIsOpen(false);
+                  setLocale(loc)
+                  setIsOpen(false)
                 }}
                 className={cn(
                   'w-full text-left px-4 py-2 text-sm transition-colors flex items-center justify-between',
@@ -97,5 +97,5 @@ export function LanguageSwitcher({ variant = 'icon' }: LanguageSwitcherProps) {
         </div>
       )}
     </div>
-  );
+  )
 }

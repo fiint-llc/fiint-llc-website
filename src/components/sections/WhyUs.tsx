@@ -1,18 +1,18 @@
-'use client';
+'use client'
 
-import { useTranslations } from 'next-intl';
-import { Target, Users, Key, Lightbulb } from 'lucide-react';
-import { Section, SectionHeader } from '../layout/Section';
+import { useTranslations } from 'next-intl'
+import { Target, Users, Key, Lightbulb } from 'lucide-react'
+import { Section, SectionHeader } from '../layout/Section'
 
-const pointIcons = [Target, Users, Key, Lightbulb];
+const pointIcons = [Target, Users, Key, Lightbulb]
 
 export function WhyUsSection() {
-  const t = useTranslations('whyUs');
+  const t = useTranslations('whyUs')
 
   const points = pointIcons.map((icon, index) => ({
     key: String(index + 1),
     icon,
-  }));
+  }))
 
   return (
     <Section sectionId="about" gradient>
@@ -32,5 +32,5 @@ export function WhyUsSection() {
         ))}
       </div>
     </Section>
-  );
+  )
 }

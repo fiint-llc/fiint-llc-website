@@ -1,25 +1,25 @@
-'use client';
+'use client'
 
-import { useTranslations } from 'next-intl';
-import { Code2, Server, Cloud } from 'lucide-react';
-import { Section, SectionHeader } from '../layout/Section';
+import { useTranslations } from 'next-intl'
+import { Code2, Server, Cloud } from 'lucide-react'
+import { Section, SectionHeader } from '../layout/Section'
 
 const categoryIcons = {
   frontend: Code2,
   backend: Server,
   cloud: Cloud,
-};
+}
 
 const categoryColors = {
   frontend: 'bg-primary-500/10 text-primary-600',
   backend: 'bg-secondary-500/10 text-secondary-600',
   cloud: 'bg-accent-500/10 text-accent-600',
-};
+}
 
 export function TechnologiesSection() {
-  const t = useTranslations('technologies');
+  const t = useTranslations('technologies')
 
-  const categories = ['frontend', 'backend', 'cloud'] as const;
+  const categories = ['frontend', 'backend', 'cloud'] as const
 
   return (
     <Section sectionId="technologies" warm>
@@ -27,9 +27,9 @@ export function TechnologiesSection() {
 
       <div className="grid md:grid-cols-3 gap-8">
         {categories.map((category, index) => {
-          const Icon = categoryIcons[category];
-          const colorClass = categoryColors[category];
-          const items = t.raw(`categories.${category}.items`) as string[];
+          const Icon = categoryIcons[category]
+          const colorClass = categoryColors[category]
+          const items = t.raw(`categories.${category}.items`) as string[]
 
           return (
             <div
@@ -59,9 +59,9 @@ export function TechnologiesSection() {
               </div>
               <span className="text-sm text-muted-foreground/60 italic mt-1">{t('andMore')}</span>
             </div>
-          );
+          )
         })}
       </div>
     </Section>
-  );
+  )
 }

@@ -1,16 +1,16 @@
-'use client';
+'use client'
 
-import * as React from 'react';
-import Link from 'next/link';
-import { useTranslations } from 'next-intl';
-import { MapPin, Mail, Building2, ArrowUpRight } from 'lucide-react';
-import { Container } from './Container';
-import { Logo } from './Logo';
-import { LanguageSwitcher } from './LanguageSwitcher';
+import * as React from 'react'
+import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { MapPin, Mail, Building2, ArrowUpRight } from 'lucide-react'
+import { Container } from './Container'
+import { Logo } from './Logo'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function Footer() {
-  const t = useTranslations('footer');
-  const currentYear = new Date().getFullYear();
+  const t = useTranslations('footer')
+  const currentYear = new Date().getFullYear()
 
   return (
     <footer className="relative border-t border-border/20 bg-neutral-950 text-neutral-100 overflow-hidden">
@@ -180,5 +180,5 @@ export function Footer() {
         </div>
       </Container>
     </footer>
-  );
+  )
 }
