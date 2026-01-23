@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { Resend } from 'resend'
 import { contactSchema, MIN_SUBMIT_TIME } from '@/lib/contact-schema'
 
 // Simple in-memory rate limiting (serverless-safe for basic protection)
@@ -78,9 +79,9 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true })
     }
 
-    // Check if SMTP is configured
-    if (!process.env.SMTP_HOST || !process.env.SMTP_USER) {
-      console.log('Contact form submission (SMTP not configured):', {
+    // Check if Resend is configured
+    if (!process.env.RESEND_API_KEY) {
+      console.log('Contact form submission (Resend not configured):', {
         name,
         email,
         company,
@@ -89,19 +90,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true })
     }
 
-    // Only import nodemailer when SMTP is configured
-    const nodemailer = await import('nodemailer')
-
-    // Create SMTP transporter
-    const transporter = nodemailer.default.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '587', 10),
-      secure: process.env.SMTP_SECURE === 'true',
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
+    ;['CONTACT_FROM_EMAIL', 'CONTACT_TO_EMAIL', 'RESEND_API_KEY'].forEach((envName) => {
+      if (!process.env[envName]) {
+        throw new Error(`${envName} env variable is not set`)
+      }
     })
+
+    const resend = new Resend(process.env.RESEND_API_KEY)
 
     // Email content
     const emailContent = `
@@ -119,16 +114,10 @@ Submitted at: ${new Date().toISOString()}
 IP: ${ip}
     `.trim()
 
-    ;['CONTACT_FROM_EMAIL', 'CONTACT_TO_EMAIL'].forEach((name) => {
-      if (!process.env[name]) {
-        throw new Error(`${name} env variable is not set`)
-      }
-    })
-
     // Send email
-    await transporter.sendMail({
-      from: process.env.CONTACT_FROM_EMAIL,
-      to: process.env.CONTACT_TO_EMAIL,
+    await resend.emails.send({
+      from: process.env.CONTACT_FROM_EMAIL!,
+      to: process.env.CONTACT_TO_EMAIL!,
       replyTo: email,
       subject: `[FI Int Contact] New message from ${name}`,
       text: emailContent,
