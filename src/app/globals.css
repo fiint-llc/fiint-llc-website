@@ -1,7 +1,6 @@
-/* Import distinctive fonts - Clash Display for headlines, Satoshi for body */
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap');
-
 @import 'tailwindcss';
+
+/* Fonts loaded via preconnect/preload in layout for better performance */
 
 /* ============================================
    DESIGN SYSTEM - FI Int LLC (2026 Premium Edition)
@@ -647,7 +646,7 @@ footer ::selection {
    PREMIUM BACKGROUND PATTERNS (Stripe/Mercury/Ramp inspired)
    ============================================ */
 
-/* Stripe-inspired aurora gradient - rich and vibrant */
+/* Stripe-inspired aurora gradient - GPU-optimized animation */
 .bg-aurora {
   position: relative;
   overflow: hidden;
@@ -671,7 +670,8 @@ footer ::selection {
     hsl(var(--primary) / 0.18) 360deg
   );
   filter: blur(100px);
-  animation: rotate 15s linear infinite;
+  animation: rotate 20s linear infinite;
+  will-change: transform;
 }
 
 .dark .bg-aurora::before {
@@ -810,7 +810,7 @@ footer ::selection {
     bottom/cover no-repeat;
 }
 
-/* Gradient orbs - floating light sources */
+/* Gradient orbs - GPU-optimized floating animations */
 .bg-orbs {
   position: relative;
   overflow: hidden;
@@ -823,6 +823,7 @@ footer ::selection {
   border-radius: 50%;
   filter: blur(80px);
   pointer-events: none;
+  will-change: transform;
 }
 
 .bg-orbs::before {
@@ -851,7 +852,7 @@ footer ::selection {
   background: hsl(var(--secondary) / 0.2);
 }
 
-/* Purple accent orb for light mode hero - adds visual pop */
+/* Purple accent orb for light mode hero - GPU-optimized */
 .bg-aurora::after {
   content: '';
   position: absolute;
@@ -868,6 +869,7 @@ footer ::selection {
   );
   filter: blur(60px);
   animation: float 8s ease-in-out infinite;
+  will-change: transform;
   pointer-events: none;
 }
 
@@ -1085,6 +1087,24 @@ footer ::selection {
   .container-custom {
     padding-left: 3rem;
     padding-right: 3rem;
+  }
+}
+
+/* Mobile performance optimizations - simplify heavy effects but keep animations */
+@media (max-width: 768px) {
+  /* Slow down aurora rotation on mobile for better performance */
+  .bg-aurora::before {
+    animation-duration: 30s;
+  }
+
+  /* Simplify the spotlight on mobile */
+  .bg-spotlight::before {
+    opacity: 0.5;
+  }
+
+  /* Speed up initial animations on mobile for better perceived performance */
+  .animate-fade-up {
+    animation-duration: 0.4s;
   }
 }
 

@@ -48,6 +48,7 @@ export const metadata: Metadata = {
     title: 'FI Int LLC - Finance Intelligence for Your Business',
     description:
       'We build software that helps businesses understand their finances and make smarter decisions.',
+    url: '/',
   },
   twitter: {
     card: 'summary_large_image',
@@ -69,6 +70,22 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Preconnect for faster font loading */}
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://api.fontshare.com" />
+        {/* Preload font CSS for early discovery */}
+        <link
+          rel="preload"
+          href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap"
+          as="style"
+        />
+        {/* Font stylesheet with display=swap - text visible while fonts load */}
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap"
+        />
+      </head>
       <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"
