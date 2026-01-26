@@ -55,19 +55,16 @@ pnpm start
 Copy `.env.example` to `.env.local` and configure:
 
 ```bash
-# SMTP Configuration
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_SECURE=false
-SMTP_USER=your-email@gmail.com
-SMTP_PASS=your-app-password
+# Resend API (https://resend.com)
+RESEND_API_KEY=re_xxxxxxxxxxxx
 
-# Contact form
-CONTACT_TO_EMAIL=contact@fiint.com
-CONTACT_FROM_EMAIL=noreply@fiint.com
+# Contact form emails
+CONTACT_TO_EMAIL=hello@thefiint.com
+CAREERS_TO_EMAIL=careers@thefiint.com
+CONTACT_FROM_EMAIL=noreply@thefiint.com  # Must use verified domain in Resend
 
 # Site URL (for sitemap, OpenGraph)
-NEXT_PUBLIC_SITE_URL=https://fiint.com
+NEXT_PUBLIC_SITE_URL=https://thefiint.com
 ```
 
 ## Internationalization
@@ -105,13 +102,10 @@ pnpm i18n:sync
 
 Add the following in Vercel Dashboard → Settings → Environment Variables:
 
-- `SMTP_HOST`
-- `SMTP_PORT`
-- `SMTP_SECURE`
-- `SMTP_USER`
-- `SMTP_PASS`
+- `RESEND_API_KEY` (secret)
 - `CONTACT_TO_EMAIL`
 - `CONTACT_FROM_EMAIL`
+- `CAREERS_TO_EMAIL`
 - `NEXT_PUBLIC_SITE_URL`
 
 ### Domain Setup
