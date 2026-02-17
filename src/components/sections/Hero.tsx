@@ -10,33 +10,17 @@ export function HeroSection() {
   const t = useTranslations('hero')
 
   return (
-    <Section className="pt-28 lg:pt-36 pb-20 lg:pb-28 relative overflow-hidden bg-aurora">
-      {/* Hexagon pattern overlay for visual texture */}
-      <div className="absolute inset-0 bg-hex opacity-60" />
-
-      {/* Spotlight effect */}
-      <div className="absolute inset-0 bg-spotlight" />
-
+    <Section className="pt-28 lg:pt-36 pb-20 lg:pb-28 relative overflow-hidden bg-mesh-clean">
       <div className="relative z-10 max-w-5xl mx-auto text-center">
-        {/* Tagline badge with gradient */}
+        {/* Tagline badge */}
         <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full badge-gradient mb-10 animate-fade-up">
           <Sparkles className="w-4 h-4 text-primary-500" aria-hidden="true" />
           <span className="font-medium">{t('tagline')}</span>
         </div>
 
-        {/* Main headline with gradient text */}
+        {/* Main headline */}
         <h1 className="text-display-sm md:text-display lg:text-display-lg text-foreground mb-8 animate-fade-up animation-delay-100">
-          {t('title')
-            .split(' ')
-            .map((word, i) => (
-              <span key={i}>
-                {i === t('title').split(' ').length - 1 ? (
-                  <span className="gradient-text">{word}</span>
-                ) : (
-                  `${word} `
-                )}
-              </span>
-            ))}
+          {t('title')}
         </h1>
 
         {/* Description */}
@@ -44,10 +28,10 @@ export function HeroSection() {
           {t('description')}
         </p>
 
-        {/* CTAs with enhanced styling */}
+        {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up animation-delay-300">
           <Link href="#contact">
-            <Button size="lg" className="gap-2 btn-glow px-8">
+            <Button size="lg" className="gap-2 px-8">
               {t('cta.primary')}
               <ArrowRight className="h-4 w-4" />
             </Button>
@@ -59,7 +43,7 @@ export function HeroSection() {
           </Link>
         </div>
 
-        {/* Scroll indicator with animation */}
+        {/* Scroll indicator */}
         <div className="mt-24 animate-bounce">
           <Link
             href="#problem"

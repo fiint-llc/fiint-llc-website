@@ -16,7 +16,7 @@ export function HowItWorksSection() {
   }))
 
   return (
-    <Section sectionId="how-it-works" className="bg-orbs relative">
+    <Section sectionId="how-it-works" gradient>
       <SectionHeader label={t('label')} title={t('title')} description={t('description')} />
 
       <div className="grid md:grid-cols-3 gap-8">
