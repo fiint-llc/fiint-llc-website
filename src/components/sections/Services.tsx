@@ -15,7 +15,7 @@ export function ServicesSection() {
   }))
 
   return (
-    <Section sectionId="services" className="bg-circuit relative">
+    <Section sectionId="services">
       <SectionHeader label={t('label')} title={t('title')} description={t('description')} />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">

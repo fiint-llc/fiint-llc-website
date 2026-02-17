@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "FI Int LLC - Finance Intelligence for Your Business",
+    "title": "FI Int LLC - Financial Intelligence for Your Business",
     "description": "We build software that helps businesses understand their finances and make smarter decisions. Custom financial tools, integrations, and analytics platforms.",
     "keywords": "financial software development, fintech, custom software, financial analytics, business intelligence, DIIA City, Ukraine IT"
   },
@@ -12,8 +12,8 @@
     "contact": "Contact"
   },
   "hero": {
-    "tagline": "Finance Intelligence for Your Business",
-    "title": "We build services that help you know your finances",
+    "tagline": "Financial Intelligence for Your Business",
+    "title": "We build software that helps you understand your finances",
     "description": "From custom analytics platforms to seamless integrations, we develop the financial intelligence tools your business needs to see clearly, act decisively, and keep moving forward.",
     "cta": {
       "primary": "Get in Touch",
@@ -97,7 +97,7 @@
   },
   "whyUs": {
     "label": "Why FI Int",
-    "title": "Built different",
+    "title": "Why us",
     "description": "A team that cares about building the right thing, not just building something.",
     "points": {
       "1": {
@@ -227,7 +227,7 @@
   },
   "footer": {
     "company": "FI Int LLC",
-    "tagline": "Finance Intelligence for Your Business. We build services that help you know your finances and build intelligence to keep it moving forward.",
+    "tagline": "Financial Intelligence for Your Business. We build software that helps you understand your finances and make smarter decisions.",
     "copyright": "© {year} FI Int LLC • All rights reserved",
     "links": {
       "careers": "Careers",

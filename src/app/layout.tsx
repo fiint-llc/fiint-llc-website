@@ -15,7 +15,7 @@ if (!process.env.NEXT_PUBLIC_SITE_URL) {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
   title: {
-    default: 'FI Int LLC - Finance Intelligence for Your Business',
+    default: 'FI Int LLC - Financial Intelligence for Your Business',
     template: '%s | FI Int LLC',
   },
   description:
@@ -45,13 +45,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'FI Int LLC',
-    title: 'FI Int LLC - Finance Intelligence for Your Business',
+    title: 'FI Int LLC - Financial Intelligence for Your Business',
     description:
       'We build software that helps businesses understand their finances and make smarter decisions.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FI Int LLC - Finance Intelligence for Your Business',
+    title: 'FI Int LLC - Financial Intelligence for Your Business',
     description:
       'We build software that helps businesses understand their finances and make smarter decisions.',
   },

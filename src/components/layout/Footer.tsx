@@ -17,13 +17,6 @@ export function Footer() {
       {/* Rich gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-950/70 via-neutral-950 to-secondary-950/40 pointer-events-none" />
 
-      {/* Decorative blobs */}
-      <div className="absolute -top-32 -right-32 w-96 h-96 blob blob-primary opacity-10" />
-      <div className="absolute -bottom-24 -left-24 w-72 h-72 blob blob-secondary opacity-[0.08]" />
-
-      {/* Subtle grid pattern */}
-      <div className="absolute inset-0 grid-pattern opacity-[0.03]" />
-
       <Container>
         <div className="relative py-16 lg:py-20">
           {/* Main grid */}
